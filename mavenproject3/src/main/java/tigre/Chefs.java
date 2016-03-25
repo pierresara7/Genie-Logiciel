@@ -10,8 +10,8 @@ package tigre;
  * @author mohamad
  */
 public class Chefs extends Pions{
-    private int nb_chefs; // le nombre de chef 
-    private String nom_chef; // ytpe de chef 
+    public int nb_chefs; // le nombre de chef 
+    public String nom_chef; // ytpe de chef 
 
   
     

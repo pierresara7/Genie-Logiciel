@@ -3,15 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Jeu;
+package tigre;
 
 /**
  *
  * @author Alphonse
  */
-public class Fermier extends Pion {
-    public Fermier(){
-         this.couleur="bleu";
-        this.nom="Fermier";
+public class Catastrophe extends Tuiles {
+    
+    public Catastrophe(int nb) {
+        super("Catastrophe", nb);
+    }
+    
+    public  String toString(){
+        
+        return "   Cas|" ;
     }
 }

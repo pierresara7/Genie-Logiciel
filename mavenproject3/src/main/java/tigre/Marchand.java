@@ -5,17 +5,14 @@
  */
 package tigre;
 
+
 /**
  *
- * @author mohamad
+ * @author Alphonse
  */
-public abstract class  Pions {
-    public int nb_sac,nb_joueur ;
+public class Marchand extends Chefs {
     
-    public Pions(){
+    public Marchand(){
+        this.nom_chef="Marchand";
     }
-    
-    abstract public void oneparty(Plateau plateau ,int i,int j );
-      abstract  public  String toString();
-
 }

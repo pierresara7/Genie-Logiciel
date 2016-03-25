@@ -7,15 +7,16 @@ package tigre;
 
 /**
  *
- * @author mohamad
+ * @author Alphonse
  */
-public abstract class  Pions {
-    public int nb_sac,nb_joueur ;
-    
-    public Pions(){
+public class Ferme extends Tuiles {
+
+    public Ferme( int nb) {
+        super("Ferme", nb);
+    }
+    public  String toString(){
+        
+        return "   Fer|" ;
     }
     
-    abstract public void oneparty(Plateau plateau ,int i,int j );
-      abstract  public  String toString();
-
 }

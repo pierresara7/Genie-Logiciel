@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Jeu;
+package tigre;
+
 
 /**
  *
  * @author Alphonse
  */
-public class Prete extends Pion {
-    public Prete(){
-         this.couleur="rouge";
-        this.nom="Prête";
+public class Fermier extends Chefs {
+    public Fermier(){
+        this.nom_chef="Fermier";
     }
-    
 }

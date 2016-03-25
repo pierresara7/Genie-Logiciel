@@ -3,16 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Jeu;
+package tigre;
 
 /**
  *
  * @author Alphonse
  */
-public class Marchand extends Pion {
-    
-    public Marchand(){
-         this.couleur="vert";
-        this.nom="Marchand";
+public class Marche extends Tuiles {
+
+    public Marche(int nb) {
+        super("Marche", nb);
     }
+    public  String toString(){
+        
+        return "   Mar|" ;
+    }
+    
 }

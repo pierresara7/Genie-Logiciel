@@ -5,10 +5,14 @@
  */
 package tigre;
 
+
 /**
  *
- * @author mohamad
+ * @author Alphonse
  */
-public class Joueurs {
+public class Prete extends Chefs {
+    public Prete(){
+        this.nom_chef="Prête";
+    }
     
 }
