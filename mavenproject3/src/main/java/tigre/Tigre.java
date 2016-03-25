@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package tigre;
+import java.util.Random ;
 
 
 /**
@@ -17,11 +18,21 @@ public class Tigre {
      */
     public static void main(String[] args) {
         
-        Plateau plateau = new Plateau(20, 10);
-        plateau.setPlateau(new Tuiles("mich", 2), 0, 0);
-         plateau.setPlateau(new Chefs("dfa", 4), 0, 1);
-       // p.afficher();
-        plateau.afficher();
+        
+       Plateau plateau = new Plateau(20, 10);
+       
+       
+       
+       java.util.Random rand=new java.util.Random();
+       
+       
+       
+       plateau.setPlateau(new Tuiles("mich", 2), 0, 0);
+        plateau.setPlateau(new Chefs("dfa", 4), 0, 1);
+         plateau.deplacer_tuile(new Chefs("vv", 2), 2, 2);
+         plateau.deplacer_tuile(new Tuiles("vv", 55), 5, 2);
+      
+       plateau.afficher();
         
         
         

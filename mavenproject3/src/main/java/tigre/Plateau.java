@@ -6,6 +6,7 @@
 package tigre;
 
 import javax.swing.JPanel ;
+import java.util.Random ;
 /**
  *
  * @author mohamad
@@ -95,8 +96,37 @@ public  class Plateau {
              
          }
      }
-
+     // cette fonction nous permettra de déplace les pion dans les cases 
+     public void deplacer_tuile(Pions p , int i, int j){
+         
+          java.util.Random rand =new java.util.Random();
+            i=rand.nextInt(10);
+            j=rand.nextInt(10);
+            //int  nombreAleatoire=  t1.nextInt(3) ;
+             int npions=360;
+            for(int n=0;n<npions;n++){
+            if(grille[i][j]== null){
+            grille[i][j] = p ;
+            
+        }
+          
+        
+             
+          }
     }
+}
+    
+          
+         //grille[i][j]=p ;
+         
+     
+  
+
+     
+
+    
+
+
 
     
    
