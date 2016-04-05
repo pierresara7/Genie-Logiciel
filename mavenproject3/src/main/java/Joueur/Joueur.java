@@ -5,11 +5,7 @@
  */
 package Joueur;
 
-import tigre.Roi;
-import tigre.Marchand;
-import tigre.Prete;
-import tigre.Fermier;
-import tigre.*;
+import Jeu.*;
 import java.util.ArrayList;
 
 /**
@@ -19,35 +15,24 @@ import java.util.ArrayList;
 public class Joueur {
     int[][] grille;
     int score;
-    tigre.Plateau plateau=new tigre.Plateau(20,10);
-
+    ArrayList<Pion> pionJoueur;
+    Plateau plateau=new Plateau();
     
 public Joueur(){    
-     Roi roi=new Roi();roi.nb_joueur=1;
-     Marchand marchand=new Marchand(); marchand.nb_joueur=1;
-     Prete prete=new Prete(); prete.nb_joueur=1;
-     Fermier fermier=new Fermier();fermier.nb_joueur=1;
-     Catastrophe cat=new Catastrophe(2);
-
+     Roi roi=new Roi();roi.nbJoueur=1;
+     Marchand marchand=new Marchand(); marchand.nbJoueur=1;
+     Prete prete=new Prete(); prete.nbJoueur=1;
+     Fermier fermier=new Fermier();fermier.nbJoueur=1;
 }
 
-     public void placer_chef(Pions pion,int x,int y){
-        if ((plateau.est_vide(x,y)) && (plateau.cote_temple(x, y)) && (plateau.sur_riviere(x, y)) && (plateau.deux_royaume(x, y))){
-            plateau.setPlateau(pion, x, y);
-            pion.nb_joueur--;
-        }
+     public void placer_chef(Pion pion,int x,int y){
+        if ((plateau.est_vide(x,y)) && (plateau.cote_temple(x, y)) && (plateau.sur_riviere(x, y)) && (plateau.deux_royaume(x, y)))
+            for(int i=0;i<=plateau.listeGrille.size();i++){
+                if((plateau.listeGrille.get(i).x==x) && (plateau.listeGrille.get(i).y==y)){
+                    Grille grille=new Grille(x,y,pion.nom,false);
+                    plateau.listeGrille.set(i, grille);
+                    pion.nbJoueur--;
+                }
             }
-     public void reprise_chef(Chefs c,int x,int y){
-         if(!plateau.cote_temple(x, y)){
-             plateau.setPlateau(null, x, y);
-             c.nb_joueur++;
-         }
-     }
-     
-     public void poser_catastrophe(int x,int y,Catastrophe c){
-         if((plateau.est_vide(x, y)) && (plateau.grille[x][y].toString()=="Tui|")){
-             plateau.setPlateau(c, x, y);
-             c.nb_joueur--;
-         }
-     }
+            }
 }

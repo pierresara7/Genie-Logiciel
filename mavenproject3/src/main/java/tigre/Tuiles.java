@@ -5,8 +5,6 @@
  */
 package tigre;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author mohamad
@@ -14,12 +12,7 @@ import java.util.ArrayList;
 public class Tuiles extends Pions{
     private int  nb_tuile ;
     private String type_tuile;
-    ArrayList<Ferme> Fermes=new ArrayList();
-    ArrayList<Temple> Temples=new ArrayList();
-    ArrayList<Peuplement> Peuplements=new ArrayList();
-    ArrayList<Marche> Marches=new ArrayList();
-    ArrayList<Catastrophe> Catastrophes=new ArrayList();
-    ArrayList<Jonction> Jonctions=new ArrayList();
+    
 
     public Tuiles( String type , int nb ) {
         super();
@@ -27,8 +20,9 @@ public class Tuiles extends Pions{
         this.type_tuile = type ;
     }
       
-    public  String toString(){        
-        return "   Tui|" ;
+    public  String toString(){
+        
+        return "   T|" ;
     }
 
     @Override

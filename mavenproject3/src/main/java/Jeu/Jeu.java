@@ -3,18 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tigre;
+package Jeu;
+
+import java.util.ArrayList;
 
 /**
  *
- * @author mohamad
+ * @author Alphonse
  */
-public abstract class  Pions {
-    private int nb_pions ;
-    
-    public Pions(){
-   nb_pions =0;  
+public class Jeu {
+    ArrayList <Pion> ListePions;
+    int grille[][];
+    public boolean est_vide(){
+        
+        return false;
+        
     }
     
-    abstract public void oneparty(Plateau plateau ,int i,int j );
 }

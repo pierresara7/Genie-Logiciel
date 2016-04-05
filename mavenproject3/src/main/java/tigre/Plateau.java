@@ -5,7 +5,7 @@
  */
 package tigre;
 
-import java.util.ArrayList;
+import javax.swing.JPanel ;
 import java.util.Random ;
 /**
  *
@@ -21,9 +21,6 @@ public  class Plateau {
     //allocation de la taille
     private int absci;
     private int ordonne;
-    
-    ArrayList<Pions[][]> Royaume=new ArrayList();
-    
 
    
 
@@ -116,50 +113,6 @@ public  class Plateau {
         
              
           }
-    }
-     // fonction qui permet de verifier si la grille est vide
-
-    /**
-     *
-     * @param p
-     * @param x
-     * @param y
-     * @return
-     */
-         public boolean est_vide(int x, int y){
-           
-                if(grille[x][y]==null)
-                    return true;
-                    
-             
-         return false;
-         
-     }
-         public boolean cote_temple(int x,int y){
-             
-                if(grille[x+1][y].toString()=="Tem|")
-                    return true;
-                if(grille[x][y+1].toString()=="Tem")
-                    return true;
-                if(grille[x-1][y].toString()=="Tem")
-                    return true;
-                if(grille[x][y-1].toString()=="Tem")
-                    return true;
-             return false;
-         }
-         
-         public boolean sur_riviere(int x,int y){
-                if(grille[x][y].toString()!="riv|")
-                    return true;
-                return false;
-         }
-         
-         public void nouveau_royaume(){
-             
-         }
-
-    public boolean deux_royaume(int x, int y) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
     

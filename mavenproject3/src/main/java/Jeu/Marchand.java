@@ -3,18 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tigre;
+package Jeu;
 
 /**
  *
- * @author mohamad
+ * @author Alphonse
  */
-public abstract class  Pions {
-    private int nb_pions ;
+public class Marchand extends Pion {
     
-    public Pions(){
-   nb_pions =0;  
+    public Marchand(){
+         this.couleur="vert";
+        this.nom="Marchand";
     }
-    
-    abstract public void oneparty(Plateau plateau ,int i,int j );
 }

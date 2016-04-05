@@ -9,12 +9,6 @@ package tigre;
  *
  * @author mohamad
  */
-public abstract class  Pions {
-    private int nb_pions ;
+public class Joueurs {
     
-    public Pions(){
-   nb_pions =0;  
-    }
-    
-    abstract public void oneparty(Plateau plateau ,int i,int j );
 }
