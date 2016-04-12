@@ -12,7 +12,7 @@ package tigre;
 public class Ferme extends Tuiles {
 
     public Ferme( int nb) {
-        super("Ferme", nb);
+        super("Ferme", nb,36);
     }
     public  String toString(){
         

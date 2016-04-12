@@ -11,8 +11,8 @@ package tigre;
  * @author Alphonse
  */
 public class Prete extends Chefs {
-    public Prete(){
-        this.nom_chef="Prête";
+    public Prete(int nb,String couleur){
+        super("Fermier",nb,4,couleur);
     }
     
 }

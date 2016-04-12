@@ -12,7 +12,7 @@ package tigre;
 public class Marche extends Tuiles {
 
     public Marche(int nb) {
-        super("Marche", nb);
+        super("Marche", nb,30);
     }
     public  String toString(){
         

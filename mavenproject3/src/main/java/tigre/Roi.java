@@ -11,7 +11,7 @@ package tigre;
  * @author Alphonse
  */
 public class Roi extends Chefs {
-    public Roi(){
-        this.nom_chef="roi";
+    public Roi(int nb,String couleur){
+        super("Fermier",nb,4,couleur);
     }
 }

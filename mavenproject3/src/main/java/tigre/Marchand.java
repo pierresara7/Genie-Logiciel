@@ -12,7 +12,7 @@ package tigre;
  */
 public class Marchand extends Chefs {
     
-    public Marchand(){
-        this.nom_chef="Marchand";
+    public Marchand(int nb,String couleur){
+        super("Fermier",nb,4,couleur);
     }
 }

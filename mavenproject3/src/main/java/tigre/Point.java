@@ -9,13 +9,10 @@ package tigre;
  *
  * @author Alphonse
  */
-public class Point extends Pions {
+public class Point  {
     int point;
 
-    @Override
-    public void oneparty(Plateau plateau, int i, int j) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
 
     @Override
     public String toString() {

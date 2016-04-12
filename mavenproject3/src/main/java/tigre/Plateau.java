@@ -5,7 +5,7 @@
  */
 package tigre;
 
-import javax.swing.JPanel ;
+import java.util.ArrayList;
 import java.util.Random ;
 /**
  *
@@ -21,6 +21,8 @@ public  class Plateau {
     //allocation de la taille
     private int absci;
     private int ordonne;
+    
+    
 
    
 
@@ -114,10 +116,119 @@ public  class Plateau {
              
           }
     }
+     // fonction qui permet de verifier si la grille est vide
+
+    /**
+     *
+     * @param p
+     * @param x
+     * @param y
+     * @return
+     */
+         public boolean est_vide(int x, int y){
+           
+                if(grille[x][y]==null)
+                    return true;
+                    
+             
+         return false;
+         
+     }
+         public boolean cote_temple(int x,int y){
+             
+                if(grille[x+1][y].toString()=="Tem|")
+                    return true;
+                if(grille[x][y+1].toString()=="Tem")
+                    return true;
+                if(grille[x-1][y].toString()=="Tem")
+                    return true;
+                if(grille[x][y-1].toString()=="Tem")
+                    return true;
+             return false;
+         }
+         
+         public boolean sur_riviere(int x,int y){
+                if(grille[x][y].toString()!="riv|")
+                    return true;
+                return false;
+         }
+         
+         public void nouveau_royaume(){
+             
+         }
+
+    public boolean deux_royaume(int x, int y) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    // CETTE méthode nous permet de délimiter le fleuve 
+     public void position_fleuve(){
+         
+         grille[3][0] = new Fleuves();
+         grille[3][1] = new Fleuves();
+         grille[3][2] = new Fleuves();
+         grille[3][3] = new Fleuves();
+         grille[2][3] = new Fleuves();
+         grille[2][4] = new Fleuves();
+         grille[1][4] = new Fleuves();
+         grille[0][4] = new Fleuves();
+         grille[0][5] = new Fleuves();
+         grille[0][6] = new Fleuves();
+         grille[0][7] = new Fleuves();
+         grille[0][8] = new Fleuves();
+         grille[0][12] = new Fleuves();
+         grille[1][12] = new Fleuves();
+         grille[2][12] = new Fleuves();
+         grille[2][13] = new Fleuves();
+         grille[3][13] = new Fleuves();
+         grille[3][14] = new Fleuves();
+         grille[3][15] = new Fleuves();
+         grille[4][15] = new Fleuves();
+         grille[5][14] = new Fleuves();
+         grille[6][14] = new Fleuves();
+         grille[6][13] = new Fleuves();
+         grille[6][12] = new Fleuves();
+         grille[7][12] = new Fleuves();
+         grille[8][12] = new Fleuves();
+         grille[8][11] = new Fleuves();
+         grille[8][10] = new Fleuves();
+         grille[8][9] = new Fleuves();
+         grille[8][8] = new Fleuves();
+         grille[8][7] = new Fleuves();
+         grille[8][6] = new Fleuves();
+         grille[7][5] = new Fleuves();
+         grille[7][4] = new Fleuves();
+         grille[7][3] = new Fleuves();
+         grille[6][3] = new Fleuves();
+         grille[6][2] = new Fleuves();
+         grille[6][1] = new Fleuves();
+         grille[6][0] = new Fleuves();
+     }
+     
+     // cette méthode nous permettra de positionner les temple dans notr plateau 
+     public void position_temple(){
+         
+         grille[0][10] = new Temple(1);
+         grille[1][1] = new Temple(1);
+         grille[1][15]= new Temple(1);
+         grille[2][5] = new Temple(1);
+         grille[4][13]= new Temple(1);
+         grille[6][8] = new Temple(1);
+         grille[7][1] = new Temple(1);
+         grille[8][14] = new Temple(1);
+         grille[9][5] = new Temple(1);
+        grille[10][10] = new Temple(1);
+         
+         
+       
+     
+     
+     }
+
 }
     
           
          //grille[i][j]=p ;
+
          
      
   

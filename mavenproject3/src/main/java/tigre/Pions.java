@@ -10,11 +10,16 @@ package tigre;
  * @author mohamad
  */
 public abstract class  Pions {
-    private int nb_pions ;
+    public int nb_sac,nb_joueur ;
+    public String nom;
     
-    public Pions(){
-   nb_pions =0;  
+    public Pions(String nom,int nb_joueur, int nb_sac){
+        this.nom=nom;
+        this.nb_joueur=nb_joueur;
+        this.nb_sac=nb_sac;
     }
     
     abstract public void oneparty(Plateau plateau ,int i,int j );
+      abstract  public  String toString();
+
 }

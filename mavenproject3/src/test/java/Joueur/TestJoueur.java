@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Joueur;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -10,17 +11,15 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import tigre.Chefs;
 import tigre.Plateau;
-import tigre.Tuiles;
 
 /**
  *
  * @author Alphonse
  */
-public class TestPlateau {
+public class TestJoueur {
     
-    public TestPlateau() {
+    public TestJoueur() {
     }
     
     @BeforeClass

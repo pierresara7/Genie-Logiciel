@@ -12,7 +12,7 @@ package tigre;
 public class Peuplement extends Tuiles {
 
     public Peuplement(int nb) {
-        super("Peuplement", nb);
+        super("Peuplement", nb,30);
     }
     public  String toString(){
         
