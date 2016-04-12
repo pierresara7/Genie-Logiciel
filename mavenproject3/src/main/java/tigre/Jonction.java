@@ -12,7 +12,7 @@ package tigre;
 public class Jonction extends Tuiles {
 
     public Jonction(int nb) {
-        super("Jonction", nb);
+        super("Jonction", nb,1);
     }
     public  String toString(){
         
