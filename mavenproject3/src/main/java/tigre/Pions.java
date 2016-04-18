@@ -12,6 +12,8 @@ package tigre;
 public abstract class  Pions {
     public int nb_sac,nb_joueur ;
     public String nom;
+    boolean tuile_royaume;
+
     
     public Pions(String nom,int nb_joueur, int nb_sac){
         this.nom=nom;

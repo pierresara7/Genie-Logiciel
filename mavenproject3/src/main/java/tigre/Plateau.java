@@ -21,6 +21,7 @@ public  class Plateau {
     //allocation de la taille
     private int absci;
     private int ordonne;
+    public ArrayList<Royaume> ListeRoyaume=new ArrayList();
     
     
 
@@ -53,19 +54,16 @@ public  class Plateau {
     public Plateau(int abs , int ord ){
         this.absci=abs;
        this.ordonne=ord;
-        this.grille=new Pions[absci][ordonne];
-        
-        
-        
-        
-        
+        this.grille=new Pions[absci][ordonne];        
     }
+    
     
    // cette methode permet de lire les pions dans le plateau
     public Pions lire_pion (int i, int j){
        if (i<absci && j<ordonne){
      
              return grille[i][j];
+             
 }
        else
             return null;
@@ -116,6 +114,19 @@ public  class Plateau {
              
           }
     }
+     
+     public void enlever_pion(int x,int y){
+         grille[x][y]=null;
+         
+     }
+     public void verifie_royaume(){
+        for(int i=0;i<=ListeRoyaume.size();i++){
+            for(int j=0;j<=ListeRoyaume.get(i).ListePions.size();j++){
+                //if(ListePions.get(j).toString==)
+            }
+            
+        }
+     }
      // fonction qui permet de verifier si la grille est vide
 
     /**
@@ -156,6 +167,22 @@ public  class Plateau {
          public void nouveau_royaume(){
              
          }
+         
+         // verifie si le grille a coté est un fermier, un marche, un peuplement ou un Temple
+         public Pions[][] ajouter_grille_royaume(int x,int y,Royaume r,Plateau p){
+                if(grille[x+1][y].tuile_royaume=true)
+                   r.ListeGrille.add(grille);
+                   ajouter_grille_royaume(x+1,y,r,p);
+                    if(grille[x][y+1].tuile_royaume=true)
+                    r.ListeGrille.add(grille);
+                   ajouter_grille_royaume(x+1,y,r,p);                
+                   if(grille[x-1][y].tuile_royaume=true)
+                        r.ListeGrille.add(grille);
+                   ajouter_grille_royaume(x+1,y,r,p);
+                       if(grille[x][y-1].tuile_royaume=true)
+                     r.ListeGrille.add(grille);
+                   ajouter_grille_royaume(x+1,y,r,p);          
+                   return null;         } 
 
     public boolean deux_royaume(int x, int y) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -224,6 +251,9 @@ public  class Plateau {
      
      }
 
+     public void verifie_chef(Royaume R){
+         
+     }
 }
     
           

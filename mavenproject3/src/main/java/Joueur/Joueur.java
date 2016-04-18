@@ -50,25 +50,35 @@ public Joueur(){
         if ((plateau.est_vide(x,y)) && (plateau.cote_temple(x, y)) && (plateau.sur_riviere(x, y)) && (plateau.deux_royaume(x, y))){
             plateau.setPlateau(pion, x, y);
             pion.nb_joueur--;
+            Royaume r=new Royaume();
+            plateau.ListeRoyaume.add(r);
+            plateau.ajouter_grille_royaume(x, y, r, plateau);
         }
             }
-     public void reprise_chef(Chefs c,int x,int y,Plateau plateau){
+     public void reprise_chef(int x,int y,Plateau plateau){
          if(!plateau.cote_temple(x, y)){
              plateau.setPlateau(null, x, y);
-             c.nb_joueur++;
+             plateau.grille[x][y].nb_joueur++;
          }
      }
-     /*
-     public void creer_royaume(){
-         if()
+     
+     public void creer_royaume(Plateau p){
          Royaume r=new Royaume();
-         ListeRoyaume.add(r);
-     }*/
+         p.ListeRoyaume.add(r);
+     }
      
      public void poser_catastrophe(int x,int y,Catastrophe c,Plateau plateau){
          if((plateau.est_vide(x, y)) && (plateau.grille[x][y].toString()=="Tui|")){
              plateau.setPlateau(c, x, y);
              c.nb_joueur--;
+             plateau.enlever_pion(x, y);
+             if(plateau.grille[x][y].toString()=="Tem|"){
+             reprise_chef(x+1,y,plateau);
+             reprise_chef(x,y+1,plateau);
+             reprise_chef(x-1,y,plateau);
+             reprise_chef(x,y-1,plateau);
+
+             }
          }
      }
 }

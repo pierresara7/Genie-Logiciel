@@ -23,6 +23,7 @@ public class Tuiles extends Pions{
 
     public Tuiles(String nom, int nb_joueur, int nb_sac) {
         super(nom, nb_joueur, nb_sac);
+        super.tuile_royaume=true;
     }
 
    
