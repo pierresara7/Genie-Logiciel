@@ -9,6 +9,16 @@ package tigre;
  *
  * @author mohamad
  */
-public class Joueurs {
+public class Fleuves extends Pions{
+   
+    public Fleuves(){
+        super();
+    }
+      public  String toString(){
+        
+        return "   fve|" ;
+    }
+
+    
     
 }

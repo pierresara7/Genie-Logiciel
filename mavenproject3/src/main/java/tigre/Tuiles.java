@@ -25,10 +25,7 @@ public class Tuiles extends Pions{
         return "   T|" ;
     }
 
-    @Override
-    public void oneparty(Plateau plateau, int i, int j) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
     
     
 

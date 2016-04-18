@@ -9,11 +9,6 @@ package tigre;
  *
  * @author mohamad
  */
-public abstract class  Pions {
-    private int nb_pions ;
-    
-    public Pions(){
-   nb_pions =0;  
-    }
+public class Clients {
     
 }

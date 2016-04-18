@@ -32,20 +32,7 @@ public class Chefs extends Pions{
     }
    
 
-    @Override
-    public void oneparty(Plateau p, int i, int j) {
-        
-         Chefs ch = new Chefs();
-        Chefs c = new Chefs(nom_chef, nb_chefs);
-         java.util.Random rand=new java.util.Random();
-        int nombreAleatoire=rand.nextInt(4);
-       
-        
-         
-        
-        int nb_chef =0 ;
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+ 
     
     
 }

@@ -9,11 +9,15 @@ package tigre;
  *
  * @author mohamad
  */
-public abstract class  Pions {
-    private int nb_pions ;
+public class Temples extends Pions{
+   
+    public Temples(){
+        super();
     
-    public Pions(){
-   nb_pions =0;  
     }
+    public String toString(){
+       
+        return "  tpl|";
+}
     
 }
