@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package tigre;
+import Joueur.Joueur;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -59,9 +60,9 @@ public class Serveur {
 
         try {
 
-            ServerSocket ss = new ServerSocket(24681);
+            ServerSocket ss = new ServerSocket(12345);
            Connection conect = new Connection(ss);
-           conect.start();
+            conect.start();
             
         } catch (Exception e) {
             e.printStackTrace();

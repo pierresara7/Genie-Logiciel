@@ -12,11 +12,16 @@ package tigre;
 public class Fleuves extends Pions{
    
     public Fleuves(){
-        super();
+        super("Fleuve",0,0);
     }
       public  String toString(){
         
         return "   fve|" ;
+    }
+
+    @Override
+    public void oneparty(Plateau plateau, int i, int j) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     
