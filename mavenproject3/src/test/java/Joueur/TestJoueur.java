@@ -77,7 +77,9 @@ public class TestJoueur {
      }
      
      @Test 
-     public void Test_detection_Conflit()
+     public void Test_detection_Conflit(){
+         
+     }
      
      
 }
