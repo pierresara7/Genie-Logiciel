@@ -13,6 +13,7 @@ public class Fleuves extends Pions{
    
     public Fleuves(){
         super("Fleuve",0,0);
+        this.tuile_royaume=false;
     }
       public  String toString(){
         

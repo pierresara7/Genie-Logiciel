@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package tigre;
+import Graphisme.Platforme;
+import javax.swing.JPanel;
 
 import java.util.ArrayList;
 import java.util.Random ;
@@ -54,7 +56,9 @@ public  class Plateau {
     public Plateau(int abs , int ord ){
         this.absci=abs;
        this.ordonne=ord;
-        this.grille=new Pions[absci][ordonne];        
+        this.grille=new Pions[absci][ordonne];     
+        this.position_fleuve();
+        this.position_temple();
     }
     
     
@@ -264,28 +268,8 @@ public  class Plateau {
          grille[2][12] = new Fleuves();
          grille[2][13] = new Fleuves();
          grille[3][13] = new Fleuves();
-         grille[3][14] = new Fleuves();
-         grille[3][15] = new Fleuves();
-         grille[4][15] = new Fleuves();
-         grille[5][14] = new Fleuves();
-         grille[6][14] = new Fleuves();
          grille[6][13] = new Fleuves();
-         grille[6][12] = new Fleuves();
-         grille[7][12] = new Fleuves();
-         grille[8][12] = new Fleuves();
-         grille[8][11] = new Fleuves();
-         grille[8][10] = new Fleuves();
-         grille[8][9] = new Fleuves();
-         grille[8][8] = new Fleuves();
-         grille[8][7] = new Fleuves();
-         grille[8][6] = new Fleuves();
-         grille[7][5] = new Fleuves();
-         grille[7][4] = new Fleuves();
-         grille[7][3] = new Fleuves();
-         grille[6][3] = new Fleuves();
-         grille[6][2] = new Fleuves();
-         grille[6][1] = new Fleuves();
-         grille[6][0] = new Fleuves();
+       
      }
      
      // cette méthode nous permettra de positionner les temple dans notr plateau 
@@ -293,20 +277,23 @@ public  class Plateau {
          
          grille[0][10] = new Temple(1);
          grille[1][1] = new Temple(1);
-         grille[1][15]= new Temple(1);
          grille[2][5] = new Temple(1);
          grille[4][13]= new Temple(1);
          grille[6][8] = new Temple(1);
          grille[7][1] = new Temple(1);
-         grille[8][14] = new Temple(1);
          grille[9][5] = new Temple(1);
-        grille[10][10] = new Temple(1);
+        grille[9][10] = new Temple(1);
          
          
        
      
      
      }
+     public JPanel affichage() {
+    
+    Platforme p=new Platforme(this);
+    return p;
+    }
 
      public void verifie_chef(Royaume R){
          
