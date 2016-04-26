@@ -40,6 +40,26 @@ for (int i = 0; i < 14; i++) {
 g.fillRect(SIZE_BLOCK * i + 6, SIZE_BLOCK * j +6, 40, 40);
  //System.out.println("ddfd");
  }
+ else if ((grille.grille[j][i] instanceof Pions) &&(grille.grille[j][i].nom=="Ferme")){
+      photo = getToolkit().getImage("C:/Users/Alphonse/Documents/M1MIAGE/MIAGE 2015-2016/GL/Projet/image/Ferme.jpg") ;
+ g.drawImage (photo, i*SIZE_BLOCK+6, j*SIZE_BLOCK+6,40,40, this);
+ }
+  else if ((grille.grille[j][i] instanceof Pions) &&(grille.grille[j][i].nom=="Catastrophe")){
+      photo = getToolkit().getImage("C:/Users/Alphonse/Documents/M1MIAGE/MIAGE 2015-2016/GL/Projet/image/catastrophe.jpg") ;
+ g.drawImage (photo, i*SIZE_BLOCK+6, j*SIZE_BLOCK+6,40,40, this);
+ }
+   else if ((grille.grille[j][i] instanceof Pions) &&(grille.grille[j][i].nom=="Jonction")){
+      photo = getToolkit().getImage("C:/Users/Alphonse/Documents/M1MIAGE/MIAGE 2015-2016/GL/Projet/image/jonction.jpg") ;
+ g.drawImage (photo, i*SIZE_BLOCK+6, j*SIZE_BLOCK+6,40,40, this);
+ }
+    else if ((grille.grille[j][i] instanceof Pions) &&(grille.grille[j][i].nom=="Marche")){
+      photo = getToolkit().getImage("C:/Users/Alphonse/Documents/M1MIAGE/MIAGE 2015-2016/GL/Projet/image/marche.jpg") ;
+ g.drawImage (photo, i*SIZE_BLOCK+6, j*SIZE_BLOCK+6,40,40, this);
+ }
+     else if ((grille.grille[j][i] instanceof Pions) &&(grille.grille[j][i].nom=="Peuplement")){
+      photo = getToolkit().getImage("C:/Users/Alphonse/Documents/M1MIAGE/MIAGE 2015-2016/GL/Projet/image/Peuplement.jpg") ;
+ g.drawImage (photo, i*SIZE_BLOCK+6, j*SIZE_BLOCK+6,40,40, this);
+ }
  else{
  g.setColor(Color.YELLOW);
 g.fillRect(SIZE_BLOCK * i + 6, SIZE_BLOCK * j +6, 40, 40);

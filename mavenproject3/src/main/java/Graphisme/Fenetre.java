@@ -8,8 +8,14 @@ package Graphisme;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.Color;
-import tigre.Plateau;
-import tigre.Temple;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import tigre.*;
+
 
 /**
  *
@@ -27,14 +33,45 @@ public class Fenetre extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private JComboBox jLabel6;
+    private JComboBox Bouton;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    
+      
+      public final void liste(){
+        jLabel6.addItem(null);   
+    jLabel6.addItem(new Temple(2));
+    jLabel6.addItem(new Ferme(2));
+   
+    jLabel6.addItemListener(new ItemListener(){
+
+              @Override
+              public void itemStateChanged(ItemEvent e) {
+                  
+                          Fenetre2 f=new Fenetre2(e,g);
+                          g=f.plateau;
+                  remove(jLabel1);                       
+                   validate();
+                    repaint();
+              }
+                    
+                });
+      }
+     
+ 
+	//...
+ 
+	
+ 
+	
+
 
     public Fenetre(Plateau s){
     
@@ -42,12 +79,15 @@ public class Fenetre extends javax.swing.JFrame {
         tab[0] = this.jLabel1;
         tab[1] = this.jLabel2;
         tab[2] = this.jLabel3;
-        tab[3] = this.jLabel5;
+        //tab[3] = this.jLabel5;
 
         tabPan[0] = this.jPanel3;
         tabPan[1] = this.jPanel4;
         tabPan[2] = this.jPanel5;
         tabPan[3] = this.jPanel6;
+      
+
+
         
         for(int i=0;i<tabPan.length;i++)
         {tabPan[i].setBackground(Color.red);
@@ -56,16 +96,21 @@ public class Fenetre extends javax.swing.JFrame {
         g = s;
         p = new Platforme(g);
 
-        aff = g.affichage();
+       aff = g.affichage();
         aff.setBounds(0, 0, 750, 500);
         aff.setBackground(Color.BLACK);
         jPanel1.add(aff);
-        jPanel1.setBackground(Color.BLACK);
+      //  jPanel1.setBackground(Color.BLACK);
         
+        liste();
+        jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jLabel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
       
             this.setBounds(700, 200, 950, 500);  
-        // aff.addMouseListener(new JDee(g,8));
-        this.getContentPane().setBackground(Color.BLACK);
+      //  this.getContentPane().setBackground(Color.BLACK);
         setTitle("Tigre");
 
 }
@@ -80,8 +125,8 @@ public class Fenetre extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new JComboBox();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -119,13 +164,13 @@ public class Fenetre extends javax.swing.JFrame {
 
         jLabel5.setText("jLabel5");
 
-        jLabel6.setText("jLabel6");
+        //jLabel6.setText("jLabel6");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 17, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,12 +288,14 @@ public class Fenetre extends javax.swing.JFrame {
         );
 
         pack();
+         
     }// </editor-fold>//GEN-END:initComponents
   
     public void setLabel(String s){
-    jLabel2.setText(s);
-        this.repaint();
+    jLabel4.setText(s);
+    jLabel4.setForeground(Color.RED); 
 
+    this.repaint();
             } 
       public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -273,6 +320,7 @@ public class Fenetre extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Fenetre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -283,8 +331,10 @@ public class Fenetre extends javax.swing.JFrame {
                 Fenetre f = new Fenetre(g);
                System.out.println(t.nom);
                 f.setVisible(true);
-                f.setLabel("salut");
-
+           //     f.setLabel("salut");
+                String Newligne=System.getProperty("line.separator");
+                String Text="salutdfds"+ Newligne+"fds";
+                f.setLabel(Text);
 
 
             }

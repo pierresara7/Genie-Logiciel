@@ -24,6 +24,7 @@ public  class Plateau {
     private int absci;
     private int ordonne;
     public ArrayList<Royaume> ListeRoyaume=new ArrayList();
+    public String msg;
     
     
 

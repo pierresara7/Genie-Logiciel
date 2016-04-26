@@ -53,6 +53,11 @@ public Joueur(){
             Royaume r=new Royaume();
             plateau.ListeRoyaume.add(r);
             plateau.ajouter_grille_royaume(x, y, r, plateau);
+            plateau.msg="Vous avez poser un chef";
+        }
+        else {
+            plateau.msg="Vous n'avez pas respecter les conditions veuillez recommencer";
+
         }
             }
      public void reprise_chef(int x,int y,Plateau plateau){
