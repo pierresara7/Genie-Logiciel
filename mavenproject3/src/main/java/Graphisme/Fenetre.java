@@ -10,10 +10,13 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.TextArea;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import tigre.*;
 
 
@@ -21,7 +24,7 @@ import tigre.*;
  *
  * @author Alphonse
  */
-public class Fenetre extends javax.swing.JFrame {
+public class Fenetre extends javax.swing.JFrame{
       private Plateau g;
     private Platforme p;
     public JPanel aff;
@@ -35,15 +38,15 @@ public class Fenetre extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private JComboBox jLabel6;
     private JComboBox Bouton;
+    private JTextField Msg;
     private javax.swing.JLabel jLabel5;
     
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private JTextArea jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    
       
       public final void liste(){
         jLabel6.addItem(null);   
@@ -57,9 +60,10 @@ public class Fenetre extends javax.swing.JFrame {
                   
                           Fenetre2 f=new Fenetre2(e,g);
                           g=f.plateau;
-                  remove(jLabel1);                       
-                   validate();
+                 setLabel(g.msg); 
+                  validate();
                     repaint();
+                  
               }
                     
                 });
@@ -95,6 +99,13 @@ public class Fenetre extends javax.swing.JFrame {
         
         g = s;
         p = new Platforme(g);
+        //Msg.setBounds(20, 20, 20, 20);
+JTextArea textArea = new JTextArea(20,10);
+ textArea.setEditable(false);
+ textArea.setLineWrap(true);
+ textArea.setWrapStyleWord(true);
+ textArea.setText("fsfsdqfqs");
+        jLabel3.add(textArea);
 
        aff = g.affichage();
         aff.setBounds(0, 0, 750, 500);
@@ -108,20 +119,22 @@ public class Fenetre extends javax.swing.JFrame {
         jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jLabel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-      
+       
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
             this.setBounds(700, 200, 950, 500);  
-      //  this.getContentPane().setBackground(Color.BLACK);
+       // this.getContentPane().setBackground(Color.BLACK);
         setTitle("Tigre");
 
 }
       public JPanel getpan() {
-       return jPanel2;
+       return jPanel1;
     }
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        jPanel2 = new JTextArea(20,20);
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -221,7 +234,7 @@ public class Fenetre extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(491, 491, 491)
+                        .addGap(700, 700, 700)
                         .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,14 +305,15 @@ public class Fenetre extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
   
     public void setLabel(String s){
-    jLabel4.setText(s);
-    jLabel4.setForeground(Color.RED); 
-
+    jPanel2.setText(s);
+    jPanel2.setForeground(Color.RED); 
+    validate();
     this.repaint();
             } 
       public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        
+//<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
@@ -321,20 +335,18 @@ public class Fenetre extends javax.swing.JFrame {
         }
         //</editor-fold>
         
+        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Plateau g = new Plateau(10,14);
-               Temple t=new Temple(2);
-                g.setPlateau(t,2,2);
                 Fenetre f = new Fenetre(g);
-               System.out.println(t.nom);
                 f.setVisible(true);
            //     f.setLabel("salut");
                 String Newligne=System.getProperty("line.separator");
                 String Text="salutdfds"+ Newligne+"fds";
-                f.setLabel(Text);
+               // f.jLabel2.setText(Text);
 
 
             }

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public abstract class  Pions {
     public int nb_sac,nb_joueur ;
     public String nom;
-    boolean tuile_royaume;
+    public boolean tuile_royaume;
     ArrayList<Royaume> Royaume=new ArrayList();
 
     

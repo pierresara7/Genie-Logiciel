@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package tigre;
+import Graphisme.Fenetre;
 import Graphisme.Platforme;
 import javax.swing.JPanel;
 
@@ -16,6 +17,7 @@ import java.util.Random ;
 
 public  class Plateau {
  
+        public Fenetre f=new Fenetre(this);
 
     
        //création d'un tableau de joueur
@@ -24,7 +26,7 @@ public  class Plateau {
     private int absci;
     private int ordonne;
     public ArrayList<Royaume> ListeRoyaume=new ArrayList();
-    public String msg;
+    public String msg="";
     
     
 
@@ -90,29 +92,36 @@ public  class Plateau {
       System.out.println("--------------------------");
     }
         
+        public void setMessage(String msg){
+            
+        }
+        
         // cette méthode permet de mettre les pions dans le plateau du jeu 
         
      public void setPlateau( Pions p , int i ,int j){
          if(grille[i][j]==null ){
              grille[i][j]= p ;     
+              msg=msg+"\nvous avez placer un pion";
          }
          else {
              i++ ;
              
          }
+                    
+
      }
      
      //cette fonction verifie si le voisin est dans un royaume
-     public boolean est_dans_royaume(int x,int y){
+     public ArrayList<Royaume> est_dans_royaume(int x,int y){
          if(grille[x+1][y].Royaume!=null){
-             return true;}
+             return grille[x+1][y].Royaume;}
          if(grille[x][y+1].Royaume!=null)
-             return true;
+             return grille[x+1][y].Royaume;
          if(grille[x-1][y].Royaume!=null)
-             return true;
+             return grille[x+1][y].Royaume;
          if(grille[x][y-1].Royaume!=null)
-             return true;
-         return false;
+             return grille[x+1][y].Royaume;
+         return null;
      }
      //cette Fonction permet d'affecter des royaume a un pion
      public void affecter_royaume(int x,int y){
@@ -156,6 +165,8 @@ public  class Plateau {
              
           }
     }
+     
+     
      
      public void enlever_pion(int x,int y){
          grille[x][y]=null;
@@ -214,7 +225,8 @@ public  class Plateau {
          public void ajouter_grille_royaume(int x,int y,Royaume r,Plateau p){
                 if(grille[x+1][y].tuile_royaume=true){
                    r.ListeGrille.add(grille);
-                   ajouter_grille_royaume2(x+1,y,r,p);}
+                   ajouter_grille_royaume2(x+1,y,r,p);
+                }
                     if(grille[x][y+1].tuile_royaume=true){
                     r.ListeGrille.add(grille);
                    ajouter_grille_royaume2(x+1,y,r,p);   }             
@@ -247,7 +259,7 @@ public  class Plateau {
                            } 
 
     public boolean deux_royaume(int x, int y) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
     // CETTE méthode nous permet de délimiter le fleuve 
      public void position_fleuve(){

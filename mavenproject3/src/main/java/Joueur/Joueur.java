@@ -11,6 +11,7 @@ import tigre.Marchand;
 import tigre.Prete;
 import tigre.Fermier;
 import tigre.*;
+import Graphisme.*;
 import java.util.ArrayList;
 
 /**
@@ -19,13 +20,16 @@ import java.util.ArrayList;
  */
 public class Joueur extends Thread {
     int[][] grille;
-    int score;
-    //tigre.Plateau plateau=new tigre.Plateau(20,10);
+    public int score;
+    Plateau p;
+    
+   // tigre.Plateau plateau=new tigre.Plateau(20,10);
     public Socket s ;
     //Liste des Pions d'un joueur
     ArrayList<Pions> ListePions=new ArrayList();
     // Liste des royaume créé par un joueur
     ArrayList<Royaume> ListeRoyaume=new ArrayList();
+    public Fenetre f;
     
     public  Joueur(Socket s) {
 		this.s = s;
@@ -54,6 +58,8 @@ public Joueur(){
             plateau.ListeRoyaume.add(r);
             plateau.ajouter_grille_royaume(x, y, r, plateau);
             plateau.msg="Vous avez poser un chef";
+            f.setLabel(plateau.msg);
+            
         }
         else {
             plateau.msg="Vous n'avez pas respecter les conditions veuillez recommencer";
@@ -65,6 +71,19 @@ public Joueur(){
              plateau.setPlateau(null, x, y);
              plateau.grille[x][y].nb_joueur++;
          }
+     }
+     public void poser_tuile_civilisation(Plateau p,Tuiles t,int i,int j){
+         if (t.tuile_royaume=true){
+             if((t.nom=="Ferme") && (p.sur_riviere(i,j))){
+                 p.setPlateau(t,i,j);
+                 if(p.est_dans_royaume(i, j)!=null){
+                 p.ajouter_grille_royaume2(j, j,null, p);
+                 }
+             }
+             else if((t.nom!="Ferme") && (!p.sur_riviere(i,j))){
+                 p.setPlateau(t, i, j);
+             }
+     }
      }
      
      public void creer_royaume(Plateau p){
