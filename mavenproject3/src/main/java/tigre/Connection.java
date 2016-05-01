@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package tigre;
+<<<<<<< HEAD
 import Joueur.Joueur;
+=======
+>>>>>>> refs/remotes/origin/Alphonse
 import java.net.ServerSocket;
 import java.net.Socket;
 /**

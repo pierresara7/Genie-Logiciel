@@ -17,6 +17,10 @@ public class Catastrophe extends Tuiles {
     
     public  String toString(){
         
+<<<<<<< HEAD
         return "   Cas|" ;
+=======
+        return "   Cas" ;
+>>>>>>> refs/remotes/origin/Alphonse
     }
 }

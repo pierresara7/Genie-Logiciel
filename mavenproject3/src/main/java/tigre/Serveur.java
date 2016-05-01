@@ -27,8 +27,13 @@ public class Serveur {
 	private static int nbclientautorise=4;
     public static int nbrCli = 0  ;// pour savoir le nombre de client qui sont inscrit 
     public static int rang=1; // le rang de chaque joueur
+<<<<<<< HEAD
     public static Clients[] tabCli = new Clients[4];
     public static void insertCli(Clients c) {
+=======
+    public static Joueur[] tabCli = new Joueur[4];
+    public static void insertCli(Joueur c) {
+>>>>>>> refs/remotes/origin/Alphonse
         tabCli[nbrCli] = c;
         nbrCli++;
     }
@@ -87,7 +92,11 @@ public class Serveur {
     				 ob = (Dataserialize)is.readObject(); // ici j 'recupère la valeur saisi par le joueur
     				 //on va verifier si le nombre de client est atteind
     				 if(nbrCli <nbclientautorise){
+<<<<<<< HEAD
     					 Clients client =new Clients(ob.getNom()); //créer un instance client avec le nom client
+=======
+    					 Joueur client =new Joueur(ob.getNom()); //créer un instance client avec le nom client
+>>>>>>> refs/remotes/origin/Alphonse
         				 Serveur.insertCli(client); //
         				 System.out.println("Client numero "+ nbrCli+" est  "+ ob.getNom());
     				 }else{
