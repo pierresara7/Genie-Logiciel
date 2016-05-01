@@ -48,7 +48,7 @@ public class TestGrille {
     
     @Test 
      public void Test_deplacer_tuile(){
-                Plateau plateau = new Plateau(20, 10);
+         Plateau plateau = new Plateau(10,14);
         plateau.setPlateau(new Tuiles("mich", 2,36), 0, 0);
        plateau.setPlateau(new Chefs("dfa", 4,36,"black"), 0, 1);
           plateau.deplacer_tuile(new Chefs("vv", 2,36,"black"), 2, 2);
@@ -57,14 +57,12 @@ public class TestGrille {
      
      @Test
      public void Test_ajouter_grille_royaume(){
-                         Plateau plateau = new Plateau(20, 10);
-       plateau.setPlateau(new Temple(2), 2, 0);
-       plateau.setPlateau(new Chefs("dfa", 4,36,"black"), 2, 1);
+         Plateau plateau = new Plateau(10,14);
+       plateau.setPlateau(new Temple(2), 5, 2);
+      // plateau.setPlateau(new Chefs("dfa", 4,36,"black"), 2, 1);
        Royaume r=new Royaume();
-       plateau.ajouter_grille_royaume2(2, 3, r, plateau);
-       
-
-     }
+       plateau.ajouter_grille_royaume2(5, 2, r, plateau);
+       }
   
             
 }

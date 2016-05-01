@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package tigre;
-import Joueur.Joueur;
 import java.net.ServerSocket;
 import java.net.Socket;
 /**

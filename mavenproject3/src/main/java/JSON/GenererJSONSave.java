@@ -3,20 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tigre;
+package JSON;
 
 /**
  *
  * @author Alphonse
  */
-public class Catastrophe extends Tuiles {
+public class GenererJSONSave {
     
-    public Catastrophe(int nb) {
-        super("Catastrophe", nb,8);
-    }
-    
-    public  String toString(){
-        
-        return "   Cas" ;
-    }
 }

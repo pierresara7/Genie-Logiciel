@@ -15,6 +15,7 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import tigre.Joueur;
 import tigre.Pions;
 import tigre.Plateau;
 
@@ -31,13 +32,15 @@ public class Fenetre2 extends javax.swing.JFrame{
         private JButton b = new JButton ("OK");
       Pions res;
       Plateau plateau;
+      Joueur joueur;
 
     
-    public Fenetre2(ItemEvent e,Plateau p){
+    public Fenetre2(ItemEvent e,Plateau p,Joueur j){
         res=(Pions) e.getItem();
                     this.setVisible(true);
         
         plateau=p;
+        joueur=j;
             this.setSize(400, 100);
             this.setLocationRelativeTo(null);
             this.setAlwaysOnTop(true);
@@ -62,7 +65,15 @@ public class Fenetre2 extends javax.swing.JFrame{
     public void actionPerformed(ActionEvent e) {
         int xx=Integer.parseInt(X.getText());
         int yy=Integer.parseInt(Y.getText());
-        plateau.setPlateau(res, xx,yy);
+        if(res.toString()=="ch"){
+        joueur.placer_chef(res, xx, yy, plateau);
+    }
+        else if(res.toString()=="Cas"){
+           joueur.poser_catastrophe(xx, yy, res, plateau);
+        }
+        else{
+            joueur.poser_tuile_civilisation(plateau, res, xx, yy);
+        }
        plateau.afficher();
        System.out.print(res);
        dispose();

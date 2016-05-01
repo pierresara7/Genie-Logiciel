@@ -17,7 +17,6 @@ import java.util.Random ;
 
 public  class Plateau {
  
-        public Fenetre f=new Fenetre(this);
 
     
        //création d'un tableau de joueur
@@ -26,6 +25,7 @@ public  class Plateau {
     private int absci;
     private int ordonne;
     public ArrayList<Royaume> ListeRoyaume=new ArrayList();
+    public ArrayList<Joueur> ListeJoueur=new ArrayList();
     public String msg="";
     
     
@@ -113,34 +113,42 @@ public  class Plateau {
      
      //cette fonction verifie si le voisin est dans un royaume
      public ArrayList<Royaume> est_dans_royaume(int x,int y){
-         if(grille[x+1][y].Royaume!=null){
+         if(!est_vide(x+1,y)){
+         if((!grille[x+1][y].Royaume.isEmpty()) && (x+1<absci)){
              return grille[x+1][y].Royaume;}
-         if(grille[x][y+1].Royaume!=null)
-             return grille[x+1][y].Royaume;
-         if(grille[x-1][y].Royaume!=null)
-             return grille[x+1][y].Royaume;
-         if(grille[x][y-1].Royaume!=null)
-             return grille[x+1][y].Royaume;
+         }
+                  if(!est_vide(x,y+1)){
+         if((!grille[x][y+1].Royaume.isEmpty()) && (y+1<ordonne))
+             return grille[x][y+1].Royaume;
+                  }
+                           if(!est_vide(x-1,y)){
+         if((!grille[x-1][y].Royaume.isEmpty()) && (x!=0))
+             return grille[x-1][y].Royaume;
+                           }
+              if(!est_vide(x,y-1)){
+         if((!grille[x][y-1].Royaume.isEmpty()) && (y!=0))
+             return grille[x][y-1].Royaume;
+                                    }
          return null;
      }
      //cette Fonction permet d'affecter des royaume a un pion
      public void affecter_royaume(int x,int y){
-         if(grille[x+1][y].Royaume!=null){
+         if((grille[x+1][y].Royaume!=null) && (x+1<absci)){
              for (int i=0;i<=grille[x+1][y].Royaume.size();i++){
                  grille[x][y].Royaume.add(grille[x+1][y].Royaume.get(i));
              }
              }
-         if(grille[x][y+1].Royaume!=null){
+         if((grille[x][y+1].Royaume!=null) && (y+1<ordonne)){
              for (int i=0;i<=grille[x+1][y].Royaume.size();i++){
                  grille[x][y].Royaume.add(grille[x][y+1].Royaume.get(i));
              }
              }
-         if(grille[x-1][y].Royaume!=null){
+         if((grille[x-1][y].Royaume!=null) && (x!=0)){
              for (int i=0;i<=grille[x+1][y].Royaume.size();i++){
                  grille[x][y].Royaume.add(grille[x-1][y].Royaume.get(i));
              }
              }
-         if(grille[x][y-1].Royaume!=null){
+         if((grille[x][y-1].Royaume!=null) && (y!=0)){
              for (int i=0;i<=grille[x+1][y].Royaume.size();i++){
                  grille[x][y].Royaume.add(grille[x][y-1].Royaume.get(i));
              }
@@ -199,21 +207,30 @@ public  class Plateau {
          
      }
          public boolean cote_temple(int x,int y){
-             
-                if(grille[x+1][y].toString()=="Tem|")
+             if (x+1<=absci-1){
+                if((grille[x+1][y].toString()=="Tem|"))
                     return true;
-                if(grille[x][y+1].toString()=="Tem")
+             }
+             if (y+1<=ordonne-1){
+                if(grille[x][y+1].toString()=="Tem") 
                     return true;
+             }
+             if((x!=0) && (!est_vide(x-1,y))){
                 if(grille[x-1][y].toString()=="Tem")
                     return true;
+             }
+             if ((y!=0) && (!est_vide(x,y-1))){
                 if(grille[x][y-1].toString()=="Tem")
                     return true;
+             }
              return false;
          }
          
          public boolean sur_riviere(int x,int y){
+             if(!est_vide(x,y)){
                 if(grille[x][y].toString()!="riv|")
-                    return true;
+                return true;
+             }
                 return false;
          }
          
@@ -221,38 +238,52 @@ public  class Plateau {
              
          }
          
+         public boolean debordement(int x,int y){
+             if(x+1>absci)
+                 return false;     
+             if(y+1>ordonne)
+                 return false;
+             if(x==0)
+                 return false;
+             if(y==0)
+                 return false;
+             return true;
+         }
+         
          // verifie si le grille a coté est un fermier, un marche, un peuplement ou un Temple
          public void ajouter_grille_royaume(int x,int y,Royaume r,Plateau p){
-                if(grille[x+1][y].tuile_royaume=true){
+                if((grille[x+1][y].tuile_royaume=true) && (debordement(x,y))){
                    r.ListeGrille.add(grille);
                    ajouter_grille_royaume2(x+1,y,r,p);
                 }
-                    if(grille[x][y+1].tuile_royaume=true){
+                    if((grille[x][y+1].tuile_royaume=true) && (debordement(x,y))){
                     r.ListeGrille.add(grille);
                    ajouter_grille_royaume2(x+1,y,r,p);   }             
-                   if(grille[x-1][y].tuile_royaume=true){
+                   if((grille[x-1][y].tuile_royaume=true) && (debordement(x,y))){
                         r.ListeGrille.add(grille);
                    ajouter_grille_royaume2(x+1,y,r,p);}
-                       if(grille[x][y-1].tuile_royaume=true){
+                       if((grille[x][y-1].tuile_royaume=true) && (debordement(x,y))){
                      r.ListeGrille.add(grille);
                    ajouter_grille_royaume2(x+1,y,r,p);     }     
                            } 
          // verifie si le grille a coté est pas null
 
           public void ajouter_grille_royaume2(int x,int y,Royaume r,Plateau p){
-                  if(grille[x+1][y]!=null){
+                  if(!est_vide(x+1,y)){
+                    if(x+1<absci){
                    r.ListePions.add(grille[x+1][y]);
                    ajouter_grille_royaume(x+1,y,r,p);
                   }
-                   if(grille[x][y+1]!=null){
+                  }
+                   if((grille[x][y+1]!=null) && (y+1<ordonne)){
                    r.ListePions.add(grille[x][y+1]);
                    ajouter_grille_royaume(x,y+1,r,p);    
                    }
-                    if(grille[x-1][y]!=null){
+                    if((grille[x-1][y]!=null) && (x!=0)){
                    r.ListePions.add(grille[x-1][y+1]);
                    ajouter_grille_royaume(x-1,1,r,p);
                     }
-                     if(grille[x][y-1]!=null){
+                     if((grille[x][y-1]!=null) && (y!=0)){
                    r.ListePions.add(grille[x][y-1]);
                    ajouter_grille_royaume(x,y-1,r,p);        
                      }

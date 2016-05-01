@@ -3,20 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tigre;
+package JSON;
+
+import tigre.Pions;
 
 /**
  *
  * @author Alphonse
  */
-public class Catastrophe extends Tuiles {
-    
-    public Catastrophe(int nb) {
-        super("Catastrophe", nb,8);
-    }
-    
-    public  String toString(){
-        
-        return "   Cas" ;
-    }
+public class Sauvegarde {
+    private Pions grille[][];
+    private int x;
+    private int y;
 }

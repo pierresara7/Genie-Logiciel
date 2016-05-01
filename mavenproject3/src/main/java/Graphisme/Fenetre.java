@@ -27,6 +27,7 @@ import tigre.*;
 public class Fenetre extends javax.swing.JFrame{
       private Plateau g;
     private Platforme p;
+    public Joueur j;
     public JPanel aff;
     public JPanel aff1 = new JPanel();
     public JLabel[] tab = new JLabel[4];
@@ -48,7 +49,7 @@ public class Fenetre extends javax.swing.JFrame{
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
       
-      public final void liste(){
+      public final void liste(final Joueur j){
         jLabel6.addItem(null);   
     jLabel6.addItem(new Temple(2));
     jLabel6.addItem(new Ferme(2));
@@ -57,9 +58,9 @@ public class Fenetre extends javax.swing.JFrame{
 
               @Override
               public void itemStateChanged(ItemEvent e) {
-                  
-                          Fenetre2 f=new Fenetre2(e,g);
+                          Fenetre2 f=new Fenetre2(e,g,j);
                           g=f.plateau;
+                  
                  setLabel(g.msg); 
                   validate();
                     repaint();
@@ -77,7 +78,7 @@ public class Fenetre extends javax.swing.JFrame{
 	
 
 
-    public Fenetre(Plateau s){
+    public Fenetre(Plateau s,Joueur j){
     
      initComponents();
         tab[0] = this.jLabel1;
@@ -113,7 +114,7 @@ JTextArea textArea = new JTextArea(20,10);
         jPanel1.add(aff);
       //  jPanel1.setBackground(Color.BLACK);
         
-        liste();
+        liste(j);
         jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -341,7 +342,8 @@ JTextArea textArea = new JTextArea(20,10);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Plateau g = new Plateau(10,14);
-                Fenetre f = new Fenetre(g);
+                Joueur j =new Joueur("A");
+                Fenetre f = new Fenetre(g,j);
                 f.setVisible(true);
            //     f.setLabel("salut");
                 String Newligne=System.getProperty("line.separator");
