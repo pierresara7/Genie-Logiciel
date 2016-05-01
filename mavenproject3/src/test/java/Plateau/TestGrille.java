@@ -12,12 +12,15 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import tigre.Chefs;
 =======
 import tigre.*;
 >>>>>>> refs/remotes/origin/Alphonse
 import tigre.Plateau;
 import tigre.Tuiles;
+=======
+>>>>>>> parent of 35dc84a... Test unitaire+poser_catastrophe
 
 /**
  *
@@ -49,6 +52,7 @@ public class TestGrille {
     //
     // @Test
     // public void hello() {}
+<<<<<<< HEAD
     
     @Test 
      public void Test_deplacer_tuile(){
@@ -76,4 +80,6 @@ public class TestGrille {
 >>>>>>> refs/remotes/origin/Alphonse
   
             
+=======
+>>>>>>> parent of 35dc84a... Test unitaire+poser_catastrophe
 }

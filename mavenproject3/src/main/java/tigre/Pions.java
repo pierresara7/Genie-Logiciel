@@ -15,12 +15,15 @@ public abstract class  Pions {
     public int nb_sac,nb_joueur ;
     public String nom;
 <<<<<<< HEAD
+<<<<<<< HEAD
     boolean tuile_royaume;
 =======
     public boolean tuile_royaume;
     ArrayList<Royaume> Royaume=new ArrayList();
 >>>>>>> refs/remotes/origin/Alphonse
 
+=======
+>>>>>>> parent of 35dc84a... Test unitaire+poser_catastrophe
     
     public Pions(String nom,int nb_joueur, int nb_sac){
         this.nom=nom;

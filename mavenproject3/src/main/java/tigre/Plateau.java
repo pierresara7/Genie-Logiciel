@@ -24,12 +24,15 @@ public  class Plateau {
     //allocation de la taille
     private int absci;
     private int ordonne;
+<<<<<<< HEAD
     public ArrayList<Royaume> ListeRoyaume=new ArrayList();
 <<<<<<< HEAD
 =======
     public ArrayList<Joueur> ListeJoueur=new ArrayList();
     public String msg="";
 >>>>>>> refs/remotes/origin/Alphonse
+=======
+>>>>>>> parent of 35dc84a... Test unitaire+poser_catastrophe
     
     
 
@@ -63,21 +66,28 @@ public  class Plateau {
         this.absci=abs;
        this.ordonne=ord;
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.grille=new Pions[absci][ordonne];        
 =======
         this.grille=new Pions[absci][ordonne];     
         this.position_fleuve();
         this.position_temple();
 >>>>>>> refs/remotes/origin/Alphonse
+=======
+        this.grille=new Pions[absci][ordonne];
+        
+        
+        
+        
+        
+>>>>>>> parent of 35dc84a... Test unitaire+poser_catastrophe
     }
-    
     
    // cette methode permet de lire les pions dans le plateau
     public Pions lire_pion (int i, int j){
        if (i<absci && j<ordonne){
      
              return grille[i][j];
-             
 }
        else
             return null;
@@ -180,6 +190,7 @@ public  class Plateau {
              
           }
     }
+<<<<<<< HEAD
      
 <<<<<<< HEAD
 =======
@@ -198,6 +209,8 @@ public  class Plateau {
             
         }
      }
+=======
+>>>>>>> parent of 35dc84a... Test unitaire+poser_catastrophe
      // fonction qui permet de verifier si la grille est vide
 
     /**
@@ -264,6 +277,7 @@ public  class Plateau {
          public void nouveau_royaume(){
              
          }
+<<<<<<< HEAD
          
 <<<<<<< HEAD
          // verifie si le grille a coté est un fermier, un marche, un peuplement ou un Temple
@@ -281,6 +295,8 @@ public  class Plateau {
                      r.ListeGrille.add(grille);
                    ajouter_grille_royaume(x+1,y,r,p);          
                    return null;         } 
+=======
+>>>>>>> parent of 35dc84a... Test unitaire+poser_catastrophe
 
     public boolean deux_royaume(int x, int y) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -425,9 +441,6 @@ public  class Plateau {
     }
 >>>>>>> refs/remotes/origin/Alphonse
 
-     public void verifie_chef(Royaume R){
-         
-     }
 }
     
           

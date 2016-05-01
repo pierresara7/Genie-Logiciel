@@ -16,8 +16,11 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import tigre.Fermier;
 import tigre.Fleuves;
+=======
+>>>>>>> parent of 35dc84a... Test unitaire+poser_catastrophe
 import tigre.Plateau;
 
 =======
@@ -53,6 +56,7 @@ public class TestJoueur {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
+<<<<<<< HEAD
 <<<<<<< HEAD
      @Test
      public void hello() {}
@@ -128,4 +132,15 @@ public class TestJoueur {
      }
 >>>>>>> refs/remotes/origin/Alphonse
      
+=======
+    // @Test
+    // public void hello() {}
+    public void test_deplacer_tuile(){
+               Plateau plateau = new Plateau(20, 10);
+               assertEquals(null,plateau);
+       
+       
+   
+    }
+>>>>>>> parent of 35dc84a... Test unitaire+poser_catastrophe
 }
