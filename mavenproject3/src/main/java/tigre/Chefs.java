@@ -20,7 +20,7 @@ public class Chefs extends Pions{
     
     public String toString(){
     
-     return  "   ch|" ;
+     return  "   ch" ;
     }
    
 

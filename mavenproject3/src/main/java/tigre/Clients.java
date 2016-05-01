@@ -9,7 +9,11 @@ package tigre;
  *
  * @author mohamad
  */
+<<<<<<< HEAD
 public class Clients {
+=======
+public class Clients{
+>>>>>>> refs/remotes/origin/Alphonse
     private String nom;
     	public Clients(String nom){
     		this.nom=nom;
