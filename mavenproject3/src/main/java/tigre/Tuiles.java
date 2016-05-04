@@ -23,11 +23,7 @@ public class Tuiles extends Pions{
 
     public Tuiles(String nom, int nb_joueur, int nb_sac) {
         super(nom, nb_joueur, nb_sac);
-<<<<<<< HEAD
-        super.tuile_royaume=true;
-=======
         this.tuile_royaume=true;
->>>>>>> refs/remotes/origin/Alphonse
     }
 
    

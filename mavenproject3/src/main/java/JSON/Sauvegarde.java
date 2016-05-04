@@ -12,7 +12,22 @@ import tigre.Pions;
  * @author Alphonse
  */
 public class Sauvegarde {
-    private Pions grille[][];
     private int x;
     private int y;
+    private String Pion;
+    public Sauvegarde(int x,int y,String pion){
+        this.x=x;
+        this.y=y;
+        this.Pion=pion;
+    }
+    
+     public int getX() {
+	return x;
+    }
+     public int getY() {
+	return y;
+    } 
+     public String getPion() {
+	return Pion;
+    } 
 }

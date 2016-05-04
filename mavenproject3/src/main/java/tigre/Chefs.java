@@ -10,10 +10,10 @@ package tigre;
  * @author mohamad
  */
 public class Chefs extends Pions{
-    String Couleur;
+    String Dynastie;
     public Chefs(String nom, int nb_joueur, int nb_sac, String Couleur) {
         super(nom, nb_joueur, nb_sac);
-        this.Couleur=Couleur;
+        this.Dynastie=Couleur;
     }
    
     

@@ -4,58 +4,55 @@
  * and open the template in the editor.
  */
 package tigre;
-<<<<<<< HEAD
-import Joueur.Joueur;
-=======
->>>>>>> refs/remotes/origin/Alphonse
+
 import java.net.ServerSocket;
 import java.net.Socket;
+
 /**
  *
- * @author mohamad
+ * @author Alphonse
  */
-public class Connection extends Thread {
-     ServerSocket ss;
+public class Connection extends Thread{
+    ServerSocket ss;
     public Connection(ServerSocket s1){
     ss=s1;
     }
-    // inwcrption des clients un par un 
     public void run() {
     try {
             
             
             while (true) {
 
-                if(Serveur.tabCli[3]==null){
+                if(Server.tabCli[3]==null){
                 
                 Socket s1 = ss.accept();
-                Serveur.c1 = new Joueur(s1);
-                Serveur.c1.start();
-                Serveur.tabCli[Serveur.nbrCli] = Serveur.c1;
-                Serveur.nbrCli++;
+                Server.c1 = new Joueur(s1);
+                Server.c1.start();
+                Server.tabCli[Server.nbrCli] = Server.c1;
+                Server.nbrCli++;
                 
                 
                 
 
                 Socket s2 = ss.accept();
 
-                Serveur.c2 = new Joueur(s2);
-                Serveur.c2.start();
-                Serveur.tabCli[Serveur.nbrCli] = Serveur.c2;
-                Serveur.nbrCli++;
+                Server.c2 = new Joueur(s2);
+                Server.c2.start();
+                Server.tabCli[Server.nbrCli] = Server.c2;
+                Server.nbrCli++;
                       
         
                 Socket s3 = ss.accept();
-                Serveur.c3 = new Joueur(s3);
-                Serveur.c3.start();
-                Serveur.tabCli[Serveur.nbrCli] = Serveur.c3;
-                Serveur.nbrCli++;
+                Server.c3 = new Joueur(s3);
+                Server.c3.start();
+                Server.tabCli[Server.nbrCli] = Server.c3;
+                Server.nbrCli++;
                 
                 Socket s4 = ss.accept();
-                 Serveur.c4 = new Joueur(s4);
-                Serveur.c4.start();
-                Serveur.tabCli[Serveur.nbrCli] = Serveur.c4;
-                Serveur.nbrCli++;
+                 Server.c4 = new Joueur(s4);
+                Server.c4.start();
+                Server.tabCli[Server.nbrCli] = Server.c4;
+                Server.nbrCli++;
                 
                 }   
             }
@@ -64,8 +61,3 @@ public class Connection extends Thread {
         }
     }
 }
-
-    
-    
-    
-

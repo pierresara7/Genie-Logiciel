@@ -25,11 +25,8 @@ public  class Plateau {
     private int absci;
     private int ordonne;
     public ArrayList<Royaume> ListeRoyaume=new ArrayList();
-<<<<<<< HEAD
-=======
     public ArrayList<Joueur> ListeJoueur=new ArrayList();
     public String msg="";
->>>>>>> refs/remotes/origin/Alphonse
     
     
 
@@ -62,13 +59,9 @@ public  class Plateau {
     public Plateau(int abs , int ord ){
         this.absci=abs;
        this.ordonne=ord;
-<<<<<<< HEAD
-        this.grille=new Pions[absci][ordonne];        
-=======
         this.grille=new Pions[absci][ordonne];     
         this.position_fleuve();
         this.position_temple();
->>>>>>> refs/remotes/origin/Alphonse
     }
     
     
@@ -181,11 +174,8 @@ public  class Plateau {
           }
     }
      
-<<<<<<< HEAD
-=======
      
      
->>>>>>> refs/remotes/origin/Alphonse
      public void enlever_pion(int x,int y){
          grille[x][y]=null;
          
@@ -217,17 +207,6 @@ public  class Plateau {
          
      }
          public boolean cote_temple(int x,int y){
-<<<<<<< HEAD
-             
-                if(grille[x+1][y].toString()=="Tem|")
-                    return true;
-                if(grille[x][y+1].toString()=="Tem")
-                    return true;
-                if(grille[x-1][y].toString()=="Tem")
-                    return true;
-                if(grille[x][y-1].toString()=="Tem")
-                    return true;
-=======
              if (x+1<=absci-1){
                 if((grille[x+1][y].toString()=="Tem|"))
                     return true;
@@ -244,20 +223,14 @@ public  class Plateau {
                 if(grille[x][y-1].toString()=="Tem")
                     return true;
              }
->>>>>>> refs/remotes/origin/Alphonse
              return false;
          }
          
          public boolean sur_riviere(int x,int y){
-<<<<<<< HEAD
-                if(grille[x][y].toString()!="riv|")
-                    return true;
-=======
              if(!est_vide(x,y)){
                 if(grille[x][y].toString()!="riv|")
                 return true;
              }
->>>>>>> refs/remotes/origin/Alphonse
                 return false;
          }
          
@@ -265,26 +238,6 @@ public  class Plateau {
              
          }
          
-<<<<<<< HEAD
-         // verifie si le grille a coté est un fermier, un marche, un peuplement ou un Temple
-         public Pions[][] ajouter_grille_royaume(int x,int y,Royaume r,Plateau p){
-                if(grille[x+1][y].tuile_royaume=true)
-                   r.ListeGrille.add(grille);
-                   ajouter_grille_royaume(x+1,y,r,p);
-                    if(grille[x][y+1].tuile_royaume=true)
-                    r.ListeGrille.add(grille);
-                   ajouter_grille_royaume(x+1,y,r,p);                
-                   if(grille[x-1][y].tuile_royaume=true)
-                        r.ListeGrille.add(grille);
-                   ajouter_grille_royaume(x+1,y,r,p);
-                       if(grille[x][y-1].tuile_royaume=true)
-                     r.ListeGrille.add(grille);
-                   ajouter_grille_royaume(x+1,y,r,p);          
-                   return null;         } 
-
-    public boolean deux_royaume(int x, int y) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-=======
          public boolean debordement(int x,int y){
              if(x+1>absci)
                  return false;     
@@ -338,7 +291,6 @@ public  class Plateau {
 
     public boolean deux_royaume(int x, int y) {
         return true;
->>>>>>> refs/remotes/origin/Alphonse
     }
     // CETTE méthode nous permet de délimiter le fleuve 
      public void position_fleuve(){
@@ -360,33 +312,8 @@ public  class Plateau {
          grille[2][12] = new Fleuves();
          grille[2][13] = new Fleuves();
          grille[3][13] = new Fleuves();
-<<<<<<< HEAD
-         grille[3][14] = new Fleuves();
-         grille[3][15] = new Fleuves();
-         grille[4][15] = new Fleuves();
-         grille[5][14] = new Fleuves();
-         grille[6][14] = new Fleuves();
-         grille[6][13] = new Fleuves();
-         grille[6][12] = new Fleuves();
-         grille[7][12] = new Fleuves();
-         grille[8][12] = new Fleuves();
-         grille[8][11] = new Fleuves();
-         grille[8][10] = new Fleuves();
-         grille[8][9] = new Fleuves();
-         grille[8][8] = new Fleuves();
-         grille[8][7] = new Fleuves();
-         grille[8][6] = new Fleuves();
-         grille[7][5] = new Fleuves();
-         grille[7][4] = new Fleuves();
-         grille[7][3] = new Fleuves();
-         grille[6][3] = new Fleuves();
-         grille[6][2] = new Fleuves();
-         grille[6][1] = new Fleuves();
-         grille[6][0] = new Fleuves();
-=======
          grille[6][13] = new Fleuves();
        
->>>>>>> refs/remotes/origin/Alphonse
      }
      
      // cette méthode nous permettra de positionner les temple dans notr plateau 
@@ -394,36 +321,23 @@ public  class Plateau {
          
          grille[0][10] = new Temple(1);
          grille[1][1] = new Temple(1);
-<<<<<<< HEAD
-         grille[1][15]= new Temple(1);
-=======
->>>>>>> refs/remotes/origin/Alphonse
          grille[2][5] = new Temple(1);
          grille[4][13]= new Temple(1);
          grille[6][8] = new Temple(1);
          grille[7][1] = new Temple(1);
-<<<<<<< HEAD
-         grille[8][14] = new Temple(1);
-         grille[9][5] = new Temple(1);
-        grille[10][10] = new Temple(1);
-=======
          grille[9][5] = new Temple(1);
         grille[9][10] = new Temple(1);
->>>>>>> refs/remotes/origin/Alphonse
          
          
        
      
      
      }
-<<<<<<< HEAD
-=======
      public JPanel affichage() {
     
     Platforme p=new Platforme(this);
     return p;
     }
->>>>>>> refs/remotes/origin/Alphonse
 
      public void verifie_chef(Royaume R){
          

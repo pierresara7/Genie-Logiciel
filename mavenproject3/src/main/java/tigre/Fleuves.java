@@ -13,10 +13,7 @@ public class Fleuves extends Pions{
    
     public Fleuves(){
         super("Fleuve",0,0);
-<<<<<<< HEAD
-=======
         this.tuile_royaume=false;
->>>>>>> refs/remotes/origin/Alphonse
     }
       public  String toString(){
         

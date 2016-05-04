@@ -14,11 +14,7 @@ public class Temple extends Tuiles {
     public Temple( int nb) {
         super("Temple", nb,57);
     }
-<<<<<<< HEAD
-    public  String toString(){
-=======
     public  String toString2(){
->>>>>>> refs/remotes/origin/Alphonse
         
         return "   Tem|" ;
     }

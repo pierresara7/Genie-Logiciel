@@ -33,9 +33,9 @@ public class Fenetre extends javax.swing.JFrame{
     public JLabel[] tab = new JLabel[4];
     public JPanel[] tabPan = new JPanel[4];
         public int i = 0;
-         private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private JComboBox jLabel6;
     private JComboBox Bouton;
@@ -62,6 +62,7 @@ public class Fenetre extends javax.swing.JFrame{
                           g=f.plateau;
                   
                  setLabel(g.msg); 
+                 remove(jLabel1);
                   validate();
                     repaint();
                   

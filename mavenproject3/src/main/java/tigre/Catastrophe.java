@@ -13,14 +13,11 @@ public class Catastrophe extends Tuiles {
     
     public Catastrophe(int nb) {
         super("Catastrophe", nb,8);
+        this.tuile_royaume=false;
     }
     
     public  String toString(){
         
-<<<<<<< HEAD
-        return "   Cas|" ;
-=======
         return "   Cas" ;
->>>>>>> refs/remotes/origin/Alphonse
     }
 }

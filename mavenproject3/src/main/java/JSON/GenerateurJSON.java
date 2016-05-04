@@ -5,7 +5,7 @@ import org.json.JSONArray;
 import java.io.FileWriter;
 import java.io.IOException;
 import tigre.Plateau;
-import tigre.Serveur;
+import tigre.Server;
 
 /**
  * Classe illustrant la sérialisation d'objets en JSON et générant un fichier
@@ -15,7 +15,7 @@ import tigre.Serveur;
  */
 public class GenerateurJSON {
     
-    public void Save(Serveur s){
+    public void Save(Server s){
         Personne p[] = { new Personne(s.tabCli[0].getNom(), s.tabCli[0].score),
 			 new Personne(s.tabCli[1].getNom(), s.tabCli[1].score),
         new Personne(s.tabCli[2].getNom(), s.tabCli[2].score),
@@ -53,7 +53,7 @@ public class GenerateurJSON {
 	}*/
 
 	// Génération du JSON depuis un tableau d'objets
-         Serveur s=new Serveur();
+         Server s=new Server();
          tigre.Joueur j=new tigre.Joueur("A");
          tigre.Joueur j2=new tigre.Joueur("B");
          tigre.Joueur j3=new tigre.Joueur("C");

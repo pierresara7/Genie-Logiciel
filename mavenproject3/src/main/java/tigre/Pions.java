@@ -14,12 +14,8 @@ import java.util.ArrayList;
 public abstract class  Pions {
     public int nb_sac,nb_joueur ;
     public String nom;
-<<<<<<< HEAD
-    boolean tuile_royaume;
-=======
     public boolean tuile_royaume;
     ArrayList<Royaume> Royaume=new ArrayList();
->>>>>>> refs/remotes/origin/Alphonse
 
     
     public Pions(String nom,int nb_joueur, int nb_sac){

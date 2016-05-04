@@ -5,26 +5,18 @@
  */
 package Joueur;
 
-<<<<<<< HEAD
-=======
 import JSON.GenerateurJSON;
->>>>>>> refs/remotes/origin/Alphonse
+import java.io.IOException;
+import java.net.ServerSocket;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-<<<<<<< HEAD
-import tigre.Fermier;
-import tigre.Fleuves;
-import tigre.Plateau;
-
-=======
 
 import tigre.*;
 import tigre.Joueur;
->>>>>>> refs/remotes/origin/Alphonse
 /**
  *
  * @author Alphonse
@@ -53,21 +45,6 @@ public class TestJoueur {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-<<<<<<< HEAD
-     @Test
-     public void hello() {}
-    
-    @Test
-     public void TestPlacer_chef(){
-         Plateau p=new Plateau(20,10);
-         Joueur j=new Joueur();
-         Fermier f=new Fermier(2,"black");
-          p.grille[10][9] = new Fleuves();
-         j.placer_chef(f, 10, 9, p);
-         
-     }
-     
-=======
     
     
     @Test
@@ -122,10 +99,15 @@ public class TestJoueur {
          s.insertCli(j);
          s.insertCli(j2);
          s.insertCli(j3);
-         s.insertCli(j4);
       GenerateurJSON g=new GenerateurJSON();
       g.Save(s);
      }
->>>>>>> refs/remotes/origin/Alphonse
+     @Test
+     public void TestStart() throws IOException{
+                   Serveur serveur=new Serveur();
+         Joueur client =new Joueur("dsqdsq"); //créer un instance client avec le nom client
+          serveur.insertCli(client); //
+         
+     }
      
 }

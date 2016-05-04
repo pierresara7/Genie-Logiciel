@@ -5,10 +5,7 @@
  */
 package tigre;
 
-<<<<<<< HEAD
-=======
 import Graphisme.Fenetre;
->>>>>>> refs/remotes/origin/Alphonse
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -20,10 +17,7 @@ import java.io.StringWriter;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.nio.channels.SocketChannel;
-<<<<<<< HEAD
-=======
 import java.util.ArrayList;
->>>>>>> refs/remotes/origin/Alphonse
 import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
@@ -35,30 +29,29 @@ import java.util.logging.Logger;
  * @author mohamad
  */
 public class Joueur extends Thread{
-<<<<<<< HEAD
-	static Scanner console;
-    public static Socket s ;
-    public static BufferedReader is ;
-    public static PrintWriter os ;
-    static ObjectInputStream in;
-=======
       // tigre.Plateau plateau=new tigre.Plateau(20,10);
     public Socket s ;
     //Liste des Pions d'un joueur
     ArrayList<Pions> ListePions=new ArrayList();
     // Liste des royaume créé par un joueur
     ArrayList<Royaume> ListeRoyaume=new ArrayList();
-    public Fenetre f;
  
 	static Scanner console;
     public static BufferedReader is ;
     public static PrintWriter os ;
     static ObjectInputStream in;
     public int score=0;
-    private String nom;
-     Plateau p;
+    Fenetre f=new Fenetre(Server.p,this);
+    public String nom;
+    public String Dynastie;
+    Plateau p;
+    public boolean debut=true;
+    public boolean a_son_tour;
+    public int a;
+
     	public Joueur(String nom){
     		setNom(nom);
+
     	}
 		public String getNom() {
 			return nom;
@@ -67,14 +60,17 @@ public class Joueur extends Thread{
 			this.nom = nom;
 		}
     
->>>>>>> refs/remotes/origin/Alphonse
     public  Joueur(Socket s) {
 		this.s = s;
 	}
-  
-<<<<<<< HEAD
-   
-=======
+    public void desk(String Dynastie){
+        Catastrophe cat=new Catastrophe(2);
+        Marchand m=new Marchand(1,Dynastie);
+        Fermier f=new Fermier(1,Dynastie);
+        Roi r=new Roi(1,Dynastie);
+        Prete p=new Prete(1,Dynastie);        
+       
+    }
    public int nb_pion_joueur(Pions p){
         return p.nb_joueur;
     }
@@ -155,39 +151,33 @@ public class Joueur extends Thread{
                           plateau.enlever_pion(x, y);
          }
          }
-    
->>>>>>> refs/remotes/origin/Alphonse
-    
-    
-    public static  void main(String[] args) throws Exception{
-    			System.out.println("*****Menu*****");
-    	    	SocketChannel sc = SocketChannel.open();
-    	    	sc.configureBlocking(true);
-    	    	System.out.println("Socket client :" +sc.socket().getChannel());
-    	    	if (sc.connect(new InetSocketAddress("127.0.0.1", 12345))) {
-    	    		ObjectOutputStream  out = new ObjectOutputStream(sc.socket().getOutputStream());
-    	    		out.flush();
-    	    		 in =new ObjectInputStream(sc.socket().getInputStream());
-    	    		 System.out.println("creation des flux: cote client");
-    	    		 console = new Scanner(System.in);
-    	    		 System.out.println("Entrer les information :");
-    			     System.out.println("Entrer un nom du joueur:");
-    			      String name = console.nextLine();
-    			      out.writeObject(new Dataserialize(name));
-    			        // System.out.println("client : donnees emis");
-    			         //System.out.println("client : donnees reçu" + in.readObject());
-    			         out.flush();
-    			         out.close();
-    			         in.close();
-    	    		
-    	    		//sc.close();
+     
+    @Override
+	public void run() {
+            try	{
+			is = new BufferedReader(new InputStreamReader(s.getInputStream()));
+			
+			os = new PrintWriter(s.getOutputStream(),true);
+                        			while (debut==true){
+                 String name=is.readLine();
+                         p=Server.p;
+                        // f.tab[2].setText(nom);
+                        f.repaint();
+                        Server.insertName(name);
+                        nom=name;    
+                        f.jLabel3.setText(name);
+                        f.repaint();
 
-    	    	//}
-    	    	//System.out.println("fin de reception");
-    		}
-    		
+                      f.setVisible(true);
+                       
+                         break;
+
+                                                }
+                                                
+            } catch (IOException ex) {
+            Logger.getLogger(Joueur.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        }
    
     }
     
