@@ -13,6 +13,6 @@ package tigre;
 public class Marchand extends Chefs {
     
     public Marchand(int nb,String couleur){
-        super("Fermier",nb,4,couleur);
+        super("Marchand",nb,4,couleur);
     }
 }

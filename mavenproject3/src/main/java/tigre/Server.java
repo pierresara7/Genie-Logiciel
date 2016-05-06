@@ -29,16 +29,7 @@ public class Server {
     public static int a;
     public static int tour = 1;
 
-    public static int rech(String s) {
-        for (int i = 0; i < nbr; i++) {
-            if (tab[i].equals(s)) {
-                return i;
-            }
-
-        }
-        return -1;
-    }
-
+    
     public static void insertName(String s) {
         for(int a=0;a<tnom.length;a++)
         {

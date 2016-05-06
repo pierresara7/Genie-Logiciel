@@ -14,9 +14,6 @@ public class Ferme extends Tuiles {
     public Ferme( int nb) {
         super("Ferme", nb,36);
     }
-    public  String toString(){
-        
-        return "   Fer|" ;
-    }
+    
     
 }

@@ -51,7 +51,7 @@ public class Fenetre2 extends javax.swing.JFrame{
     X.setForeground(Color.BLUE);
      Y.setPreferredSize(new Dimension(30, 30));
     Y.setForeground(Color.BLUE);
-        b.addActionListener(new BoutonListener());
+    b.addActionListener(new BoutonListener());
         top.add(X);
     top.add(Y);
     top.add(b);
@@ -62,13 +62,17 @@ public class Fenetre2 extends javax.swing.JFrame{
        return p;
    }
     class BoutonListener implements ActionListener{
+     /**
+      * methode pour placer le pion sur le plateau en fonction du pion selectionnné  
+      * @param e 
+      */ 
     public void actionPerformed(ActionEvent e) {
         int xx=Integer.parseInt(X.getText());
         int yy=Integer.parseInt(Y.getText());
-        if(res.toString()=="ch"){
+        if((res.toString()=="Marchand") || (res.toString()=="Roi") || (res.toString()=="Prete") || (res.toString()=="Fermier")){
         joueur.placer_chef(res, xx, yy, plateau);
     }
-        else if(res.toString()=="Cas"){
+        else if(res.toString()=="Catastrophe"){
            joueur.poser_catastrophe(xx, yy, res, plateau);
         }
         else{

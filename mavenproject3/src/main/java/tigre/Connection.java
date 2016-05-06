@@ -27,6 +27,8 @@ public class Connection extends Thread{
                 
                 Socket s1 = ss.accept();
                 Server.c1 = new Joueur(s1);
+                Server.c1.Dynastie="Zeus";
+                Server.c1.desk();
                 Server.c1.start();
                 Server.tabCli[Server.nbrCli] = Server.c1;
                 Server.nbrCli++;
@@ -37,6 +39,7 @@ public class Connection extends Thread{
                 Socket s2 = ss.accept();
 
                 Server.c2 = new Joueur(s2);
+                Server.c2.Dynastie="Hades";
                 Server.c2.start();
                 Server.tabCli[Server.nbrCli] = Server.c2;
                 Server.nbrCli++;
@@ -44,12 +47,14 @@ public class Connection extends Thread{
         
                 Socket s3 = ss.accept();
                 Server.c3 = new Joueur(s3);
+                Server.c3.Dynastie="Athena";
                 Server.c3.start();
                 Server.tabCli[Server.nbrCli] = Server.c3;
                 Server.nbrCli++;
                 
                 Socket s4 = ss.accept();
-                 Server.c4 = new Joueur(s4);
+                Server.c4 = new Joueur(s4);
+                Server.c1.Dynastie="Medusa";
                 Server.c4.start();
                 Server.tabCli[Server.nbrCli] = Server.c4;
                 Server.nbrCli++;

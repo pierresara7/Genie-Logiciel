@@ -52,7 +52,12 @@ public class TestJoueur {
          Plateau p = new Plateau(10,14);
          Joueur j=new Joueur("A");
          Fermier f=new Fermier(2,"black");
-         j.placer_chef(f, 9, 9, p);
+         // toutes les condition pour pour placer chef ne sont pas valide;
+         j.placer_chef(f, 9, 9, p); 
+         // toutes les condition pour pour placer chef sont valide;
+         assertTrue(p.cote_temple(1,0));
+         j.placer_chef(f, 1, 0, p);
+
          
      }
      
@@ -62,8 +67,12 @@ public class TestJoueur {
          Joueur j=new Joueur("A");
          Temple t=new Temple(5);
          p.setPlateau(t, 5, 8);
+         Roi r=new Roi(1,"black");
+         p.setPlateau(r, 5, 9);
         Catastrophe c=new Catastrophe(2);
         j.poser_catastrophe(5, 8, c, p);
+        j.poser_catastrophe(5, 9, c, p);
+
 
      }
       @Test
@@ -82,6 +91,9 @@ public class TestJoueur {
          Joueur j=new Joueur("A");
           Temple t=new Temple(5);
           j.poser_tuile_civilisation(p, t, 5, 2);
+          Ferme f=new Ferme(2);
+        j.poser_tuile_civilisation(p, t, 3, 0);
+
      }
      
      @Test 
@@ -90,8 +102,7 @@ public class TestJoueur {
      }
      @Test
      public void TestSaveScore(){
-         Serveur s=new Serveur();
-         Plateau p = new Plateau(10,14);
+        Server s=new Server();
          Joueur j=new Joueur("A");
          Joueur j2=new Joueur("B");
          Joueur j3=new Joueur("C");
@@ -99,15 +110,9 @@ public class TestJoueur {
          s.insertCli(j);
          s.insertCli(j2);
          s.insertCli(j3);
+         s.insertCli(j4);        
       GenerateurJSON g=new GenerateurJSON();
       g.Save(s);
      }
-     @Test
-     public void TestStart() throws IOException{
-                   Serveur serveur=new Serveur();
-         Joueur client =new Joueur("dsqdsq"); //créer un instance client avec le nom client
-          serveur.insertCli(client); //
-         
-     }
-     
+    
 }

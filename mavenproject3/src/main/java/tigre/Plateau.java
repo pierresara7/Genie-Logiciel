@@ -4,12 +4,10 @@
  * and open the template in the editor.
  */
 package tigre;
-import Graphisme.Fenetre;
 import Graphisme.Platforme;
 import javax.swing.JPanel;
 
 import java.util.ArrayList;
-import java.util.Random ;
 /**
  *
  * @author mohamad
@@ -65,7 +63,13 @@ public  class Plateau {
     }
     
     
-   // cette methode permet de lire les pions dans le plateau
+   
+    /**
+     *cette methode permet de lire les pions dans le plateau
+     * @param i
+     * @param j
+     * @return
+     */
     public Pions lire_pion (int i, int j){
        if (i<absci && j<ordonne){
      
@@ -96,12 +100,18 @@ public  class Plateau {
             
         }
         
-        // cette méthode permet de mettre les pions dans le plateau du jeu 
+        
+     /**
+     * cette méthode permet de mettre les pions dans le plateau de jeu
+     * @param i
+     * @param j
+     * @param p
+     */
+        
         
      public void setPlateau( Pions p , int i ,int j){
          if(grille[i][j]==null ){
              grille[i][j]= p ;     
-              msg=msg+"\nvous avez placer un pion";
          }
          else {
              i++ ;
@@ -111,51 +121,85 @@ public  class Plateau {
 
      }
      
-     //cette fonction verifie si le voisin est dans un royaume
+     /**
+      * cette fonction verifie si le voisin est dans un royaume
+      * @param x
+      * @param y
+      */
      public ArrayList<Royaume> est_dans_royaume(int x,int y){
+         if(x+1<absci){
          if(!est_vide(x+1,y)){
-         if((!grille[x+1][y].Royaume.isEmpty()) && (x+1<absci)){
+         if(!grille[x+1][y].Royaume.isEmpty() ){
              return grille[x+1][y].Royaume;}
          }
+         }
+         if(y+1<ordonne){
                   if(!est_vide(x,y+1)){
-         if((!grille[x][y+1].Royaume.isEmpty()) && (y+1<ordonne))
+         if(!grille[x][y+1].Royaume.isEmpty())
              return grille[x][y+1].Royaume;
                   }
+         }
+         if(x!=0){
                            if(!est_vide(x-1,y)){
-         if((!grille[x-1][y].Royaume.isEmpty()) && (x!=0))
+         if(!grille[x-1][y].Royaume.isEmpty())
              return grille[x-1][y].Royaume;
                            }
+         }
+         if(y!=0){
               if(!est_vide(x,y-1)){
-         if((!grille[x][y-1].Royaume.isEmpty()) && (y!=0))
+         if(!grille[x][y-1].Royaume.isEmpty())
              return grille[x][y-1].Royaume;
-                                    }
+              }
+         }
          return null;
      }
-     //cette Fonction permet d'affecter des royaume a un pion
+     /**
+      * cette Fonction permet d'affecter des royaume a un pion
+      * @param x
+      * @param y 
+      */
+    
      public void affecter_royaume(int x,int y){
-         if((grille[x+1][y].Royaume!=null) && (x+1<absci)){
-             for (int i=0;i<=grille[x+1][y].Royaume.size();i++){
+        if((x+1<absci) && (!est_vide(x+1,y))){
+            if(!grille[x+1][y].Royaume.isEmpty()){
+            for (int i=0;i<=grille[x+1][y].Royaume.size();i++){
                  grille[x][y].Royaume.add(grille[x+1][y].Royaume.get(i));
+                 msg="\n"+grille[x][y].nom+" a été affecté a un royaume"+msg;
              }
              }
-         if((grille[x][y+1].Royaume!=null) && (y+1<ordonne)){
-             for (int i=0;i<=grille[x+1][y].Royaume.size();i++){
+        }
+          if((y+1<ordonne) && (!est_vide(x,y+1))){
+            if(!grille[x][y+1].Royaume.isEmpty()){
+             for (int i=0;i<=grille[x][y+1].Royaume.size();i++){
                  grille[x][y].Royaume.add(grille[x][y+1].Royaume.get(i));
+                 msg="\n"+grille[x][y].nom+" a été affecté a un royaume"+msg;
              }
              }
-         if((grille[x-1][y].Royaume!=null) && (x!=0)){
-             for (int i=0;i<=grille[x+1][y].Royaume.size();i++){
+          }
+          if((x!=0) && (!est_vide(x-1,y))){
+            if(!grille[x-1][y].Royaume.isEmpty()){
+             for (int i=0;i<=grille[x-1][y].Royaume.size();i++){
                  grille[x][y].Royaume.add(grille[x-1][y].Royaume.get(i));
+                 msg="\n"+grille[x][y].nom+" a été affecté a un royaume"+msg;
              }
              }
-         if((grille[x][y-1].Royaume!=null) && (y!=0)){
-             for (int i=0;i<=grille[x+1][y].Royaume.size();i++){
+          }
+          if((y!=0) && (!est_vide(x,y-1))){
+            if(!grille[x][y-1].Royaume.isEmpty()){
+             for (int i=0;i<=grille[x][y-1].Royaume.size();i++){
                  grille[x][y].Royaume.add(grille[x][y-1].Royaume.get(i));
+                 msg="\n"+grille[x][y].nom+" a été affecté a un royaume"+msg;
              }
              }
+          }
          
      }
-     // cette fonction nous permettra de déplace les pion dans les cases 
+     /**
+      * cette fonction nous permettra de déplace les pion dans les cases 
+      * @param p
+      * @param i
+      * @param j 
+      */
      public void deplacer_tuile(Pions p , int i, int j){
          
           java.util.Random rand =new java.util.Random();
@@ -175,24 +219,18 @@ public  class Plateau {
     }
      
      
-     
+     /**
+      * supprime un pion
+      * @param x
+      * @param y 
+      */
      public void enlever_pion(int x,int y){
          grille[x][y]=null;
          
      }
-     public void verifie_royaume(){
-        for(int i=0;i<=ListeRoyaume.size();i++){
-            for(int j=0;j<=ListeRoyaume.get(i).ListePions.size();j++){
-                //if(ListePions.get(j).toString==)
-            }
-            
-        }
-     }
-     // fonction qui permet de verifier si la grille est vide
 
     /**
-     *
-     * @param p
+     *Vérifie si la grille est vide
      * @param x
      * @param y
      * @return
@@ -206,21 +244,27 @@ public  class Plateau {
          return false;
          
      }
+         /**
+          * vérifie si la grille est a coté d'un temple
+          * @param x
+          * @param y
+          * @return 
+          */
          public boolean cote_temple(int x,int y){
-             if (x+1<=absci-1){
-                if((grille[x+1][y].toString()=="Tem|"))
+             if ((x+1<=absci-1)&& (!est_vide(x+1,y))){
+                if((grille[x+1][y].toString()=="Temple"))
                     return true;
              }
-             if (y+1<=ordonne-1){
-                if(grille[x][y+1].toString()=="Tem") 
+             if ((y+1<=ordonne-1) && (!est_vide(x,y+1))){
+                if(grille[x][y+1].toString()=="Temple") 
                     return true;
              }
              if((x!=0) && (!est_vide(x-1,y))){
-                if(grille[x-1][y].toString()=="Tem")
+                if(grille[x-1][y].toString()=="Temple")
                     return true;
              }
              if ((y!=0) && (!est_vide(x,y-1))){
-                if(grille[x][y-1].toString()=="Tem")
+                if(grille[x][y-1].toString()=="Temple")
                     return true;
              }
              return false;
@@ -228,71 +272,99 @@ public  class Plateau {
          
          public boolean sur_riviere(int x,int y){
              if(!est_vide(x,y)){
-                if(grille[x][y].toString()!="riv|")
+                if(grille[x][y].toString()!="Fleuve")
                 return true;
              }
                 return false;
          }
          
-         public void nouveau_royaume(){
-             
-         }
+        
          
-         public boolean debordement(int x,int y){
-             if(x+1>absci)
-                 return false;     
-             if(y+1>ordonne)
-                 return false;
-             if(x==0)
-                 return false;
-             if(y==0)
-                 return false;
-             return true;
-         }
+       
          
-         // verifie si le grille a coté est un fermier, un marche, un peuplement ou un Temple
+         /**
+          *  verifie si le grille a coté est un fermier, un marche, un peuplement ou un Temple
+          * @param x
+          * @param y
+          * @param r
+          * @param p 
+          */
          public void ajouter_grille_royaume(int x,int y,Royaume r,Plateau p){
-                if((grille[x+1][y].tuile_royaume=true) && (debordement(x,y))){
+              if(x+1<absci){
+                if(grille[x+1][y].tuile_royaume=true){
                    r.ListeGrille.add(grille);
                    ajouter_grille_royaume2(x+1,y,r,p);
                 }
-                    if((grille[x][y+1].tuile_royaume=true) && (debordement(x,y))){
+              }
+                 if(y+1<ordonne){              
+                    if(grille[x][y+1].tuile_royaume=true) {
                     r.ListeGrille.add(grille);
-                   ajouter_grille_royaume2(x+1,y,r,p);   }             
-                   if((grille[x-1][y].tuile_royaume=true) && (debordement(x,y))){
+                   ajouter_grille_royaume2(x+1,y,r,p);   }   
+                 }
+                 if(x!=0){
+                   if(grille[x-1][y].tuile_royaume=true){
                         r.ListeGrille.add(grille);
                    ajouter_grille_royaume2(x+1,y,r,p);}
-                       if((grille[x][y-1].tuile_royaume=true) && (debordement(x,y))){
+                 }
+                 if(y!=0){
+                       if(grille[x][y-1].tuile_royaume=true) {
                      r.ListeGrille.add(grille);
                    ajouter_grille_royaume2(x+1,y,r,p);     }     
                            } 
-         // verifie si le grille a coté est pas null
+         }
+         /**
+          * verifie si le grille a coté est pas null et evite le debordement du plateau
+          * @param x
+          * @param y
+          * @param r
+          * @param p 
+          */
 
           public void ajouter_grille_royaume2(int x,int y,Royaume r,Plateau p){
-                  if(!est_vide(x+1,y)){
-                    if(x+1<absci){
+                 if(x+1<absci){
+                    if(!est_vide(x+1,y)){
                    r.ListePions.add(grille[x+1][y]);
-                   ajouter_grille_royaume(x+1,y,r,p);
-                  }
-                  }
-                   if((grille[x][y+1]!=null) && (y+1<ordonne)){
-                   r.ListePions.add(grille[x][y+1]);
-                   ajouter_grille_royaume(x,y+1,r,p);    
-                   }
-                    if((grille[x-1][y]!=null) && (x!=0)){
-                   r.ListePions.add(grille[x-1][y+1]);
-                   ajouter_grille_royaume(x-1,1,r,p);
+                   if(grille[x+1][y].tuile_royaume!=false) {
+                    r.ListeGrille.add(grille);
+                    msg="\nle pion a été ajouté au royaume"+msg;
+                     }  
                     }
-                     if((grille[x][y-1]!=null) && (y!=0)){
+                  }
+                 if(y+1<ordonne){
+                   if(!est_vide(x,y+1)) {
+                   r.ListePions.add(grille[x][y+1]);
+                    if(grille[x][y+1].tuile_royaume!=false) {
+                    r.ListeGrille.add(grille);
+                    msg="\nle pion a été ajouté au royaume"+msg;
+                     }                 
+                   }
+                 }
+                 if(x!=0){
+                    if(grille[x-1][y]!=null){
+                   r.ListePions.add(grille[x-1][y+1]);
+                       if(grille[x-1][y].tuile_royaume!=false) {
+                    r.ListeGrille.add(grille);
+                    msg="\nle pion a été ajouté au royaume"+msg;
+                     }  
+                    }
+                 }
+                  if(y!=0){
+                     if(grille[x][y-1]!=null){
                    r.ListePions.add(grille[x][y-1]);
-                   ajouter_grille_royaume(x,y-1,r,p);        
+                   if(grille[x][y-1].tuile_royaume!=false) {
+                    r.ListeGrille.add(grille);
+                    msg="\nle pion a été ajouté au royaume"+msg;
+                     }          
                      }
+                  }
                            } 
 
     public boolean deux_royaume(int x, int y) {
         return true;
     }
-    // CETTE méthode nous permet de délimiter le fleuve 
+    /**
+     * CETTE méthode nous permet de délimiter le fleuve 
+     */
      public void position_fleuve(){
          
          grille[3][0] = new Fleuves();
@@ -316,7 +388,9 @@ public  class Plateau {
        
      }
      
-     // cette méthode nous permettra de positionner les temple dans notr plateau 
+     /**
+      * cette méthode nous permettra de positionner les temple dans notr plateau 
+      */
      public void position_temple(){
          
          grille[0][10] = new Temple(1);

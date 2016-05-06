@@ -17,7 +17,7 @@ public class Fleuves extends Pions{
     }
       public  String toString(){
         
-        return "   fve|" ;
+        return "fve" ;
     }
 
     @Override

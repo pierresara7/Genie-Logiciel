@@ -11,8 +11,8 @@ package tigre;
  * @author Alphonse
  */
 public class Prete extends Chefs {
-    public Prete(int nb,String couleur){
-        super("Fermier",nb,4,couleur);
+    public Prete(int nb,String dynastie){
+        super("Prete",nb,4,dynastie);
     }
     
 }

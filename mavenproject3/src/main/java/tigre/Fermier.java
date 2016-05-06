@@ -11,7 +11,7 @@ package tigre;
  * @author Alphonse
  */
 public class Fermier extends Chefs {
-    public Fermier(int nb,String couleur){
-        super("Fermier",nb,4,couleur);
+    public Fermier(int nb,String dynastie){
+        super("Fermier",nb,4,dynastie);
     }
 }

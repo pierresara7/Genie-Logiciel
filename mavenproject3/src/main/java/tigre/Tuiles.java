@@ -29,7 +29,7 @@ public class Tuiles extends Pions{
    
       
     public  String toString(){        
-        return "   Tui|" ;
+        return nom ;
     }
 
     @Override

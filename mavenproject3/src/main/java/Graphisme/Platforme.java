@@ -60,6 +60,22 @@ g.fillRect(SIZE_BLOCK * i + 6, SIZE_BLOCK * j +6, 40, 40);
       photo = getToolkit().getImage("C:/Users/Alphonse/Documents/M1MIAGE/MIAGE 2015-2016/GL/Projet/image/Peuplement.jpg") ;
  g.drawImage (photo, i*SIZE_BLOCK+6, j*SIZE_BLOCK+6,40,40, this);
  }
+    else if ((grille.grille[j][i] instanceof Pions) &&(grille.grille[j][i].nom=="Fermier")){
+ g.setColor(Color.CYAN);
+g.fillRect(SIZE_BLOCK * i + 6, SIZE_BLOCK * j +6, 40, 40);
+          }
+    else if ((grille.grille[j][i] instanceof Pions) &&(grille.grille[j][i].nom=="Roi")){
+ g.setColor(Color.WHITE);
+g.fillRect(SIZE_BLOCK * i + 6, SIZE_BLOCK * j +6, 40, 40);
+          }
+    else if ((grille.grille[j][i] instanceof Pions) &&(grille.grille[j][i].nom=="Prete")){
+ g.setColor(Color.RED);
+g.fillRect(SIZE_BLOCK * i + 6, SIZE_BLOCK * j +6, 40, 40);
+          }
+    else if ((grille.grille[j][i] instanceof Pions) &&(grille.grille[j][i].nom=="Marchand")){
+ g.setColor(Color.GREEN);
+g.fillRect(SIZE_BLOCK * i + 6, SIZE_BLOCK * j +6, 40, 40);
+          }
  else{
  g.setColor(Color.YELLOW);
 g.fillRect(SIZE_BLOCK * i + 6, SIZE_BLOCK * j +6, 40, 40);

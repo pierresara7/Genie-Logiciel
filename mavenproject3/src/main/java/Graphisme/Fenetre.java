@@ -5,12 +5,16 @@
  */
 package Graphisme;
 
+import JSON.GenerateurJSON;
+import JSON.GenererJSONSave;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.TextArea;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import javax.swing.JButton;
@@ -28,6 +32,7 @@ public class Fenetre extends javax.swing.JFrame{
       private Plateau g;
     private Platforme p;
     public Joueur j;
+    public Server ser;
     public JPanel aff;
     public JPanel aff1 = new JPanel();
     public JLabel[] tab = new JLabel[4];
@@ -38,9 +43,7 @@ public class Fenetre extends javax.swing.JFrame{
     public javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private JComboBox jLabel6;
-    private JComboBox Bouton;
-    private JTextField Msg;
-    private javax.swing.JLabel jLabel5;
+    private JButton jLabel5 = new JButton ("SAUVEGARDE");
     
     private javax.swing.JPanel jPanel1;
     private JTextArea jPanel2;
@@ -49,11 +52,23 @@ public class Fenetre extends javax.swing.JFrame{
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
       
+    /**
+     * methode pour voir les pions du joueur dans la fentre
+     * @param j 
+     */
       public final void liste(final Joueur j){
-        jLabel6.addItem(null);   
-    jLabel6.addItem(new Temple(2));
-    jLabel6.addItem(new Ferme(2));
-   
+        jLabel6.addItem(null); 
+       
+        jLabel6.addItem(new Catastrophe(2)); 
+        jLabel6.addItem(new Marchand(1,"Dynastie"));
+        jLabel6.addItem(new Roi(1,"Dynastie"));
+        jLabel6.addItem(new Prete(1,"Dynastie"));
+        jLabel6.addItem(new Fermier(1,"Dynastie"));
+        jLabel6.addItem(new Temple(2));
+        jLabel6.addItem(new Ferme(2));
+        jLabel6.addItem(new Peuplement(1));
+        jLabel6.addItem(new Marche(1));
+        
     jLabel6.addItemListener(new ItemListener(){
 
               @Override
@@ -74,12 +89,29 @@ public class Fenetre extends javax.swing.JFrame{
  
 	//...
  
-	
- 
-	
+/**
+ * methode pour lancer la sauvegarde des clients et du plateau	
+ */
+ class BoutonListener implements ActionListener{
+    public void actionPerformed(ActionEvent e) {
+          GenererJSONSave gen=new GenererJSONSave();
+         gen.Save(g);      
+         GenerateurJSON gen2=new GenerateurJSON();
+         gen2.Save(ser);
+         g.msg="Sauvegarde éffectuée"+g.msg;
+       
+                }
 
 
-    public Fenetre(Plateau s,Joueur j){
+  }
+	
+
+/**
+ * methode pour lancer la sauvegarde des clients et du plateau	
+ * @param s
+ * @param j 
+ */
+    public Fenetre(final Plateau s,Joueur j){
     
      initComponents();
         tab[0] = this.jLabel1;
@@ -106,23 +138,25 @@ JTextArea textArea = new JTextArea(20,10);
  textArea.setEditable(false);
  textArea.setLineWrap(true);
  textArea.setWrapStyleWord(true);
- textArea.setText("fsfsdqfqs");
         jLabel3.add(textArea);
 
        aff = g.affichage();
         aff.setBounds(0, 0, 750, 500);
         aff.setBackground(Color.BLACK);
         jPanel1.add(aff);
+        jLabel5.addActionListener(new BoutonListener());
+    
+         
       //  jPanel1.setBackground(Color.BLACK);
         
         liste(j);
-        jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jLabel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+      //  jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+      //  jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+      //  jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+       // jLabel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        //jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
        
-        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+      //  jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
             this.setBounds(700, 200, 950, 500);  
        // this.getContentPane().setBackground(Color.BLACK);
@@ -141,7 +175,7 @@ JTextArea textArea = new JTextArea(20,10);
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new JComboBox();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel5 = new JButton("SAUVEGARDE");
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -171,13 +205,13 @@ JTextArea textArea = new JTextArea(20,10);
             .addGap(0, 227, Short.MAX_VALUE)
         );
 
-        jLabel1.setText("jLabel1");
+        //jLabel1.setText("jLabel1");
 
-        jLabel2.setText("jLabel2");
+        //jLabel2.setText("jLabel2");
 
-        jLabel3.setText("jLabel3");
+        //jLabel3.setText("jLabel3");
 
-        jLabel5.setText("jLabel5");
+        //jLabel5.setText("jLabel5");
 
         //jLabel6.setText("jLabel6");
 
@@ -346,10 +380,7 @@ JTextArea textArea = new JTextArea(20,10);
                 Joueur j =new Joueur("A");
                 Fenetre f = new Fenetre(g,j);
                 f.setVisible(true);
-           //     f.setLabel("salut");
-                String Newligne=System.getProperty("line.separator");
-                String Text="salutdfds"+ Newligne+"fds";
-               // f.jLabel2.setText(Text);
+           
 
 
             }

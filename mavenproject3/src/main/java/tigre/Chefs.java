@@ -11,16 +11,17 @@ package tigre;
  */
 public class Chefs extends Pions{
     String Dynastie;
-    public Chefs(String nom, int nb_joueur, int nb_sac, String Couleur) {
+    public Chefs(String nom, int nb_joueur, int nb_sac, String dynastie) {
         super(nom, nb_joueur, nb_sac);
-        this.Dynastie=Couleur;
+        this.Dynastie=dynastie;
+        this.tuile_royaume=true;
     }
    
     
     
     public String toString(){
     
-     return  "   ch" ;
+     return  nom ;
     }
    
 

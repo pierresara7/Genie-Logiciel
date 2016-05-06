@@ -4,28 +4,21 @@ package JSON;
 public class Personne {
 
     private String nom;
-    private String prenom;
-    private int age;
+    private int score;
 
    
-    public Personne(String nom, int age) {
+    public Personne(String nom, int score) {
 	this.nom = nom;
-	this.age = age;
+	this.score = score;
     }
 
    
     public String getNom() {
 	return nom;
     }
-
    
-    public String getPrenom() {
-	return prenom;
-    }
-
-   
-    public int getAge() {
-	return age;
+    public int getScore() {
+	return score;
     }    
 
 }

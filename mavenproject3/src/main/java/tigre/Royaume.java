@@ -31,7 +31,11 @@ public void ajouter_Pions(Pions p){
     ListePions.add(p);
     
 }
-
+/**
+ * Methode pour vérifié si il y a un chef dans le royaume
+ * @param P
+ * @return 
+ */
 public boolean Verifie_chef(Plateau P){
     for (int i=0;i<=ListePions.size();i++){
         if((ListePions.get(i).toString()=="|Che"))
@@ -39,7 +43,10 @@ public boolean Verifie_chef(Plateau P){
     }
         return false;
 }
-
+/**
+ * Methode pour vérifié si il y a un temple a coté dans le royaume
+ * @return 
+ */
 public boolean verifie_temple(){
      for (int i=0;i<=ListePions.size();i++){
         if((ListePions.get(i).toString()=="|Tem"))
@@ -47,7 +54,10 @@ public boolean verifie_temple(){
     }
         return false;
 }
-
+/**
+ * Methode pour detecter si il y a 2 chef de meme nom dans un royaume
+ * @return 
+ */
 public boolean detection_conflit(){
          for (int i = 0; i < ListePions.size(); i++)
       {

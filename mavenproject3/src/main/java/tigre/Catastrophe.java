@@ -16,8 +16,5 @@ public class Catastrophe extends Tuiles {
         this.tuile_royaume=false;
     }
     
-    public  String toString(){
-        
-        return "   Cas" ;
-    }
+   
 }
